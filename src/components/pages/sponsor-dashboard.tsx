@@ -129,7 +129,7 @@ const SponsorDashboard = () => {
               className="w-full p-3 rounded-lg bg-gray-800 border border-gray-600 md:col-span-2"
             />
           </div>
-          <Button onClick={handleCreate} disabled={loading} className="bg-green-600 hover:bg-green-700">
+          <Button onClick={handleCreate} disabled={loading} className="bg-electric-blue hover:bg-electric-blue-200">
             {loading ? "Creating..." : "Create"}
           </Button>
         </Card>

@@ -10,7 +10,7 @@ const Loader: React.FC<{ overlay?: boolean }> = ({ overlay = true }) => (
     style={{ minHeight: overlay ? "100vh" : undefined }}
   >
     <svg
-      className="animate-spin h-12 w-12 text-green-700"
+      className="animate-spin h-12 w-12 text-electric-blue"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"

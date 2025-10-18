@@ -6,52 +6,52 @@ const UseCasesSection = () => {
 
   const opportunities = [
     {
-      title: "Earn",
-      description: "Delegate to orchestrators and earn up to 65% APY",
+      title: "Compete",
+      description: "Join contests and compete for rewards and recognition",
       icon: <TrendingUp className="w-8 h-8" />,
-      gradient: "from-green-600 to-green-800",
-      action: "Start Earning",
-      link: "/wallet"
+      gradient: "from-electric-blue to-electric-blue-200",
+      action: "Start Competing",
+      link: "/opportunities"
     },
     {
       title: "Discover",
-      description: "Find the best orchestrators and opportunities",
+      description: "Find contests, bounties, and opportunities on Cedra",
       icon: <Target className="w-8 h-8" />,
       gradient: "from-blue-600 to-blue-800",
       action: "Explore",
-      link: "/wallet"
+      link: "/opportunities"
     },
     {
       title: "Build",
-      description: "Grow your Livepeer portfolio and track performance",
+      description: "Develop Move applications and grow your reputation",
       icon: <Rocket className="w-8 h-8" />,
       gradient: "from-purple-600 to-purple-800",
-      action: "Build Portfolio",
-      link: "/dashboard"
+      action: "Start Building",
+      link: "/opportunities"
     },
     {
       title: "Connect",
-      description: "Join the community of builders and creators",
+      description: "Join the Cedra ecosystem community of builders",
       icon: <Users className="w-8 h-8" />,
       gradient: "from-orange-600 to-orange-800",
       action: "Join Community",
       link: "/profile"
     },
     {
-      title: "Fund",
-      description: "Add funds to your wallet and start delegating",
+      title: "Submit",
+      description: "Submit your solutions and track contest progress",
       icon: <Wallet className="w-8 h-8" />,
-      gradient: "from-teal-600 to-teal-800",
-      action: "Add Funds",
-      link: "/funding"
+      gradient: "from-glow-cyan to-glow-cyan-200",
+      action: "Submit Work",
+      link: "/opportunities"
     },
     {
-      title: "Optimize",
-      description: "Use advanced tools to maximize your rewards",
+      title: "Rise",
+      description: "Climb leaderboards and earn merit-based recognition",
       icon: <Zap className="w-8 h-8" />,
       gradient: "from-pink-600 to-pink-800",
-      action: "Optimize",
-      link: "/wallet"
+      action: "View Leaderboard",
+      link: "/opportunities"
     }
   ];
 
@@ -59,7 +59,7 @@ const UseCasesSection = () => {
   <section className="w-full py-20 bg-background relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-64 h-64 bg-green-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-20 w-64 h-64 bg-electric-blue/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-20 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
       </div>
@@ -68,12 +68,12 @@ const UseCasesSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-white to-green-400 bg-clip-text text-transparent">
-              Discover Opportunities
+            <span className="bg-gradient-to-r from-white to-electric-blue bg-clip-text text-transparent">
+              Build on Cedra
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Join the talent layer of decentralized video. Choose your path and start building your future.
+            Join the Cedra ecosystem. Compete in contests, build innovative solutions, and rise through merit.
           </p>
         </div>
 
@@ -82,7 +82,7 @@ const UseCasesSection = () => {
           {opportunities.map((opportunity, index) => (
             <div
               key={index}
-              className="group relative bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl p-8 hover:border-green-500/50 transition-all duration-500 hover:transform hover:scale-105"
+              className="group relative bg-card/60 backdrop-blur-sm border border-border rounded-2xl p-8 hover:border-electric-blue/50 transition-all duration-500 hover:transform hover:scale-105 hover:glow-electric"
             >
               {/* Card Background Gradient */}
               <div className={`absolute inset-0 bg-gradient-to-br ${opportunity.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-2xl`}></div>
@@ -107,7 +107,7 @@ const UseCasesSection = () => {
                 {/* Action Button */}
                 <button
                   onClick={() => navigate(opportunity.link)}
-                  className="inline-flex items-center gap-2 text-green-400 hover:text-green-300 font-medium transition-colors duration-300 group-hover:gap-3"
+                  className="inline-flex items-center gap-2 text-electric-blue hover:text-electric-blue-50 font-medium transition-colors duration-300 group-hover:gap-3"
                 >
                   {opportunity.action}
                   <span className="text-lg">→</span>
@@ -115,7 +115,7 @@ const UseCasesSection = () => {
               </div>
 
               {/* Hover Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-green-500/0 via-green-500/5 to-green-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-electric-blue/0 via-electric-blue/5 to-electric-blue/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
             </div>
           ))}
         </div>
@@ -123,10 +123,10 @@ const UseCasesSection = () => {
         {/* Bottom CTA */}
         <div className="text-center mt-16">
           <button
-            onClick={() => navigate("/wallet")}
-            className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-500 hover:to-green-600 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-green-500/25"
+            onClick={() => navigate("/opportunities")}
+            className="bg-gradient-to-r from-electric-blue to-electric-blue-200 hover:from-electric-blue-50 hover:to-electric-blue text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg glow-electric hover:glow-electric-strong"
           >
-            Get Started with PeerSurf
+            Get Started with TeamMove
           </button>
         </div>
       </div>

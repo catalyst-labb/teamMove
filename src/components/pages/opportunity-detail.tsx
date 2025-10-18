@@ -119,15 +119,27 @@ const OpportunityDetailPage = () => {
   }, [opportunity]);
 
   const handlePostComment = async () => {
-    if (!user) {
-      navigate("/auth?mode=login");
-      return;
-    }
     if (!id) return;
     const text = commentText.trim();
     if (!text) return;
     setPosting(true);
     try {
+      // In demo mode, simulate comment posting
+      if (!import.meta.env.VITE_SUPABASE_URL || !import.meta.env.VITE_SUPABASE_ANON_KEY) {
+        // Simulate API call delay
+        await new Promise(resolve => setTimeout(resolve, 500));
+        const mockComment = {
+          id: `demo-comment-${Date.now()}`,
+          opportunity_id: id,
+          user_id: user?.id || "demo-user-123",
+          content: text,
+          created_at: new Date().toISOString(),
+        };
+        setComments((prev) => [mockComment, ...prev]);
+        setCommentText("");
+        return;
+      }
+      
       const { data, error } = await createCommentForOpportunity({
         opportunity_id: id,
         user_id: user.id,
@@ -146,10 +158,6 @@ const OpportunityDetailPage = () => {
   const handleSubmit = async () => {
     setError("");
     setSuccessMsg("");
-    if (!user) {
-      navigate("/auth?mode=login");
-      return;
-    }
     if (!id) return;
     if (!proposal.trim()) {
       setError("Please provide a brief proposal.");
@@ -157,6 +165,16 @@ const OpportunityDetailPage = () => {
     }
     setSubmitLoading(true);
     try {
+      // In demo mode, simulate submission
+      if (!import.meta.env.VITE_SUPABASE_URL || !import.meta.env.VITE_SUPABASE_ANON_KEY) {
+        // Simulate API call delay
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        setSuccessMsg("Demo submission received! In production, this would be sent to the sponsor.");
+        setProposal("");
+        setLinks("");
+        return;
+      }
+      
       const { error } = await createSubmission({
         opportunity_id: id,
         user_id: user.id,
@@ -209,7 +227,7 @@ const OpportunityDetailPage = () => {
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 mb-2">
                 <h1 className="text-xl sm:text-2xl font-bold truncate">{opportunity.title}</h1>
-                {opportunity?.status === "Active" && <CheckCircle className="w-5 h-5 text-green-400" />}
+                {opportunity?.status === "Active" && <CheckCircle className="w-5 h-5 text-electric-blue" />}
               </div>
               <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
                 {opportunity.type && (
@@ -221,10 +239,10 @@ const OpportunityDetailPage = () => {
                   </span>
                 )}
                 {opportunity.reward && (
-                  <span className="text-green-400">{opportunity.reward}</span>
+                  <span className="text-electric-blue">{opportunity.reward}</span>
                 )}
                 {opportunity.max_amount && (
-                  <span className="flex items-center gap-1 text-green-400"><DollarSign className="w-4 h-4" />{opportunity.max_amount}</span>
+                  <span className="flex items-center gap-1 text-electric-blue"><DollarSign className="w-4 h-4" />{opportunity.max_amount}</span>
                 )}
               </div>
             </div>
@@ -247,7 +265,7 @@ const OpportunityDetailPage = () => {
                 {isExpanded ? (opportunity as any).fullDescription : opportunity.description}
                 <button
                   onClick={() => setIsExpanded(!isExpanded)}
-                  className="ml-2 text-green-400 hover:text-green-300 text-sm font-medium"
+                  className="ml-2 text-electric-blue hover:text-electric-blue/80 text-sm font-medium"
                 >
                   {isExpanded ? "Read Less" : "Read More"}
                 </button>
@@ -284,9 +302,13 @@ const OpportunityDetailPage = () => {
         </Card>
             <Card className="bg-card border border-border p-4 sm:p-6">
               <h2 className="text-lg font-semibold mb-4">Submit your proposal</h2>
-              {!user && (
+              {!import.meta.env.VITE_SUPABASE_URL || !import.meta.env.VITE_SUPABASE_ANON_KEY ? (
                 <div className="mb-4 text-sm text-muted-foreground">
-                  You need to be logged in to submit. <button className="text-green-400" onClick={() => navigate("/auth?mode=login")}>Login</button>
+                  Demo mode: Submissions are simulated. In production, you would need to be logged in.
+                </div>
+              ) : !user && (
+                <div className="mb-4 text-sm text-muted-foreground">
+                  You need to be logged in to submit. <button className="text-electric-blue" onClick={() => navigate("/auth?mode=login")}>Login</button>
                 </div>
               )}
               <div className="space-y-4">
@@ -309,9 +331,9 @@ const OpportunityDetailPage = () => {
                   />
                 </div>
                 {error && <div className="text-destructive text-sm">{error}</div>}
-                {successMsg && <div className="text-green-400 text-sm">{successMsg}</div>}
+                {successMsg && <div className="text-electric-blue text-sm">{successMsg}</div>}
                 <div className="flex justify-end">
-                  <Button onClick={handleSubmit} className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-500 hover:to-green-600" disabled={submitLoading}>
+                  <Button onClick={handleSubmit} className="bg-gradient-to-r from-electric-blue to-electric-blue-200 hover:from-electric-blue-50 hover:to-electric-blue glow-electric hover:glow-electric-strong" disabled={submitLoading}>
                     {submitLoading ? "Submitting..." : "Submit"}
                   </Button>
                 </div>
@@ -321,12 +343,12 @@ const OpportunityDetailPage = () => {
             {/* Comments Section */}
             <Card className="bg-card border border-border p-4 sm:p-6">
               <h3 className="font-semibold mb-4">Comments</h3>
-              {user ? (
+              {user || (!import.meta.env.VITE_SUPABASE_URL || !import.meta.env.VITE_SUPABASE_ANON_KEY) ? (
                 <div className="flex items-start gap-3 mb-4">
                   <Avatar className="w-8 h-8">
                     <AvatarImage src={(user as any)?.user_metadata?.avatar_url || ""} />
-                    <AvatarFallback className="bg-green-700 text-white">
-                      {(user?.email || "U").slice(0,2).toUpperCase()}
+                    <AvatarFallback className="bg-electric-blue text-white">
+                      {(user?.email || "D").slice(0,2).toUpperCase()}
                     </AvatarFallback>
                   </Avatar>
                   <div className="flex-1">
@@ -337,7 +359,7 @@ const OpportunityDetailPage = () => {
                       placeholder="Share feedback, ask questions, or drop your submission link"
                     />
                     <div className="flex justify-end mt-2">
-                      <Button onClick={handlePostComment} disabled={posting || !commentText.trim()} className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-500 hover:to-green-600">
+                      <Button onClick={handlePostComment} disabled={posting || !commentText.trim()} className="bg-gradient-to-r from-electric-blue to-electric-blue-200 hover:from-electric-blue-50 hover:to-electric-blue glow-electric hover:glow-electric-strong">
                         {posting ? "Posting..." : "Post"}
                       </Button>
                     </div>
@@ -369,22 +391,22 @@ const OpportunityDetailPage = () => {
             {/* Related Listings (shown below on mobile, sidebar on desktop) */}
             <div className="lg:hidden">
               <Card className="bg-card border border-border p-4 sm:p-6">
-                <h3 className="font-semibold mb-4">Related Live listings</h3>
+                <h3 className="font-semibold mb-4">Related Cedra listings</h3>
                 {related.length === 0 ? (
                   <div className="text-sm text-muted-foreground">No related listings yet.</div>
                 ) : (
                   <div className="space-y-3">
                     {related.map((r) => (
                       <Link key={String(r.id)} to={`/opportunity/${r.id}`} state={{ opportunity: r }} className="block">
-                        <div className="p-3 rounded-lg bg-muted/60 border border-border hover:border-green-600 transition-colors">
+                        <div className="p-3 rounded-lg bg-muted/60 border border-border hover:border-electric-blue transition-colors">
                           <div className="flex items-center justify-between gap-3">
                             <div className="min-w-0">
                               <div className="text-sm text-foreground truncate">{r.title}</div>
                               <div className="text-xs text-muted-foreground truncate">{r.type}{r.category ? ` • ${r.category}` : ""}</div>
                             </div>
-                            {r.reward && <div className="text-xs text-green-400 whitespace-nowrap">{r.reward}</div>}
+                            {r.reward && <div className="text-xs text-electric-blue whitespace-nowrap">{r.reward}</div>}
                             {!r.reward && r.max_amount && (
-                              <div className="text-xs text-green-400 whitespace-nowrap">{r.max_amount}</div>
+                              <div className="text-xs text-electric-blue whitespace-nowrap">{r.max_amount}</div>
                             )}
                           </div>
                         </div>
@@ -402,7 +424,7 @@ const OpportunityDetailPage = () => {
               <div className="text-sm text-muted-foreground space-y-2">
                 <div className="flex items-center justify-between">
                   <span>Status</span>
-                  <span className={opportunity.status === "Active" ? "text-green-400" : "text-muted-foreground"}>{opportunity.status}</span>
+                  <span className={opportunity.status === "Active" ? "text-electric-blue" : "text-muted-foreground"}>{opportunity.status}</span>
                 </div>
                 {opportunity.category && (
                   <div className="flex items-center justify-between">
@@ -445,7 +467,7 @@ const OpportunityDetailPage = () => {
                       {defaults.map((p, i) => (
                         <li key={i} className="flex items-center justify-between">
                           <span className="text-muted-foreground">{p.label}</span>
-                          <span className="text-green-400">{p.amount}</span>
+                          <span className="text-electric-blue">{p.amount}</span>
                         </li>
                       ))}
                     </ul>
@@ -458,9 +480,9 @@ const OpportunityDetailPage = () => {
               <h3 className="font-semibold mb-2">Contact organizers</h3>
               <div className="text-sm text-muted-foreground mb-4">Have questions or need clarification? Reach out to the organizers.</div>
               <Button
-                className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-500 hover:to-green-600 flex items-center gap-2 justify-center"
+                className="w-full bg-gradient-to-r from-electric-blue to-electric-blue-200 hover:from-electric-blue-50 hover:to-electric-blue flex items-center gap-2 justify-center glow-electric hover:glow-electric-strong"
                 onClick={() => {
-                  const email = (opportunity as any)?.contact_email || "support@peersurf.xyz";
+                  const email = (opportunity as any)?.contact_email || "support@teammove.xyz";
                   const subject = encodeURIComponent(`Opportunity Inquiry: ${opportunity.title}`);
                   const body = encodeURIComponent("Hi,\n\nI have a question regarding this opportunity.\n\nThanks,");
                   window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
@@ -472,22 +494,22 @@ const OpportunityDetailPage = () => {
 
             <div className="hidden lg:block">
               <Card className="bg-card border border-border p-4 sm:p-6">
-                <h3 className="font-semibold mb-4">Related Live listings</h3>
+                <h3 className="font-semibold mb-4">Related Cedra listings</h3>
                 {related.length === 0 ? (
                   <div className="text-sm text-muted-foreground">No related listings yet.</div>
                 ) : (
                   <div className="space-y-3">
                     {related.map((r) => (
                       <Link key={String(r.id)} to={`/opportunity/${r.id}`} state={{ opportunity: r }} className="block">
-                        <div className="p-3 rounded-lg bg-muted/60 border border-border hover:border-green-600 transition-colors">
+                        <div className="p-3 rounded-lg bg-muted/60 border border-border hover:border-electric-blue transition-colors">
                           <div className="flex items-center justify-between gap-3">
                             <div className="min-w-0">
                               <div className="text-sm text-foreground truncate">{r.title}</div>
                               <div className="text-xs text-muted-foreground truncate">{r.type}{r.category ? ` • ${r.category}` : ""}</div>
                             </div>
-                            {r.reward && <div className="text-xs text-green-400 whitespace-nowrap">{r.reward}</div>}
+                            {r.reward && <div className="text-xs text-electric-blue whitespace-nowrap">{r.reward}</div>}
                             {!r.reward && r.max_amount && (
-                              <div className="text-xs text-green-400 whitespace-nowrap">{r.max_amount}</div>
+                              <div className="text-xs text-electric-blue whitespace-nowrap">{r.max_amount}</div>
                             )}
                           </div>
                         </div>

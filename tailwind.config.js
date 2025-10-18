@@ -41,6 +41,25 @@ export default {
           DEFAULT: "var(--card)",
           foreground: "var(--card-foreground)",
         },
+        // TeamMove Custom Colors
+        "deep-navy": {
+          DEFAULT: "oklch(0.08 0.02 240)",
+          50: "oklch(0.15 0.05 240)",
+          100: "oklch(0.12 0.03 240)",
+          200: "oklch(0.20 0.03 240)",
+        },
+        "electric-blue": {
+          DEFAULT: "oklch(0.55 0.25 240)",
+          50: "oklch(0.60 0.20 240)",
+          100: "oklch(0.50 0.20 240)",
+          200: "oklch(0.45 0.15 240)",
+        },
+        "glow-cyan": {
+          DEFAULT: "oklch(0.70 0.20 200)",
+          50: "oklch(0.75 0.15 200)",
+          100: "oklch(0.65 0.15 200)",
+          200: "oklch(0.60 0.10 200)",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -1,7 +1,7 @@
 {
-  "name": "PeerSurf",
-  "short_name": "PeerSurf",
-  "description": "Discover opportunities on the Livepeer ecosystem",
+  "name": "TeamMove",
+  "short_name": "TeamMove",
+  "description": "Contest-driven ecosystem builder for the Cedra network",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",

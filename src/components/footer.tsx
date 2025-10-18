@@ -5,7 +5,7 @@ const Footer = () => {
         {/* Bottom: Copyright */}
         <div className="flex flex-col md:flex-row justify-between items-center">
         <p className="text-muted-foreground text-sm">
-            &copy; {new Date().getFullYear()} PeerSurf. All rights reserved.
+            &copy; {new Date().getFullYear()} TeamMove. All rights reserved.
           </p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <a

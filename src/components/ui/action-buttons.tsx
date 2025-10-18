@@ -4,7 +4,7 @@ import { Button } from "./button";
 import { Plus, Calculator, CreditCard, Home } from "lucide-react";
 
 const LIVEPEER_GRADIENT = "linear-gradient(135deg, #006400 0%, #00EB88 100%)";
-const LIVEPEER_GREEN = "#006400";
+const LIVEPEER_BLUE = "#0066CC";
 const ACTION_BUTTONS_HEIGHT = 104;
 
 
@@ -99,7 +99,7 @@ const ActionButtons: React.FC = () => {
                     flex: "0 0 75px",
                     height: "50px",
                     background: isActive ? LIVEPEER_GRADIENT : "white",
-                    color: isActive ? "white" : LIVEPEER_GREEN,
+                    color: isActive ? "white" : LIVEPEER_BLUE,
                     boxShadow: "none", // Remove shadow from button
                   }}
                   onClick={() => navigate(action.path)}

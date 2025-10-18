@@ -40,7 +40,7 @@ const PaystackButton: React.FC<PaystackButtonProps> = ({ email, amount, userId, 
 
   return (
     <button
-      className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded font-semibold"
+      className="bg-electric-blue hover:bg-electric-blue-200 text-white px-6 py-2 rounded font-semibold"
       onClick={payWithPaystack}
     >
       Fund Wallet

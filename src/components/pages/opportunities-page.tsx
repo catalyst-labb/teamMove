@@ -21,47 +21,47 @@ import { Skeleton } from "../ui/skeleton";
 const mockBounties = [
   {
     id: 1,
-    title: "Build Livepeer Analytics Dashboard",
-    team: "PeerSurf Labs",
+    title: "Build Cedra Analytics Dashboard",
+    team: "TeamMove Labs",
     verified: true,
     type: "Bounty",
     status: "Active",
     comments: 12,
     reward: "800 USDC",
     category: "Development",
-    description: "Create a comprehensive analytics dashboard for Livepeer orchestrators"
+    description: "Create a comprehensive analytics dashboard for Cedra ecosystem"
   },
   {
     id: 2,
-    title: "Design PeerSurf Mobile App UI",
-    team: "PeerSurf Design",
+    title: "Design TeamMove Mobile App UI",
+    team: "TeamMove Design",
     verified: true,
     type: "Bounty",
     status: "Active",
     comments: 8,
     reward: "600 USDC",
     category: "Design",
-    description: "Design the mobile app interface for PeerSurf platform"
+    description: "Design the mobile app interface for TeamMove platform"
   },
   {
     id: 3,
-    title: "Write Livepeer Ecosystem Guide",
-    team: "PeerSurf Content",
+    title: "Write Cedra Ecosystem Guide",
+    team: "TeamMove Content",
     verified: true,
     type: "Bounty",
     status: "Active",
     comments: 5,
     reward: "400 USDC",
     category: "Content",
-    description: "Create comprehensive documentation for Livepeer ecosystem"
+    description: "Create comprehensive documentation for Cedra ecosystem"
   }
 ];
 
 const mockGrants = [
   {
     id: 1,
-    title: "Livepeer Foundation Development Grants",
-    team: "PeerSurf Foundation",
+    title: "Cedra Foundation Development Grants",
+    team: "TeamMove Foundation",
     verified: true,
     type: "Grant",
     avgAmount: "$4.25k",
@@ -70,8 +70,8 @@ const mockGrants = [
   },
   {
     id: 2,
-    title: "PeerSurf Community Grants",
-    team: "PeerSurf Community",
+    title: "TeamMove Community Grants",
+    team: "TeamMove Community",
     verified: true,
     type: "Grant",
     avgAmount: "$3.5k",
@@ -80,8 +80,8 @@ const mockGrants = [
   },
   {
     id: 3,
-    title: "Livepeer Research Grants",
-    team: "PeerSurf Research",
+    title: "Cedra Research Grants",
+    team: "TeamMove Research",
     verified: true,
     type: "Grant",
     avgAmount: "$5.2k",
@@ -93,15 +93,15 @@ const mockGrants = [
 const mockRFPs = [
   {
     id: 1,
-    title: "Livepeer Explorer Restoration & Modernization",
-    team: "Livepeer Foundation",
+    title: "Cedra Explorer Restoration & Modernization",
+    team: "Cedra Foundation",
     verified: true,
     type: "RFP",
     status: "Active",
     comments: 15,
     reward: "Up to $50k USDC",
     category: "Development",
-    description: "Restore the Livepeer Explorer to a secure, maintainable, and high-performance state while laying the groundwork for new network-wide data and governance dashboards.",
+    description: "Restore the Cedra Explorer to a secure, maintainable, and high-performance state while laying the groundwork for new network-wide data and governance dashboards.",
     fullDescription: `Restore the Livepeer Explorer to a secure, maintainable, and high-performance state while laying the groundwork for new network-wide data and governance dashboards.
 
 The Explorer is the primary entry point for orchestrators, delegators, developers, and gateways. However, since December 2023 lack of ownership has accumulated significant technical debt:
@@ -120,19 +120,19 @@ Success means that within four months the Explorer is:
 • Backed by a clear 6-month roadmap and dedicated maintainer team`,
     deadline: "2025-09-24",
     contact: "Rick Staa",
-    issuedBy: "Livepeer Foundation"
+    issuedBy: "Cedra Foundation"
   },
   {
     id: 2,
-    title: "Livepeer Documentation Restructure & Modernization",
-    team: "Livepeer Foundation",
+    title: "Cedra Documentation Restructure & Modernization",
+    team: "Cedra Foundation",
     verified: true,
     type: "RFP",
     status: "Active",
     comments: 8,
     reward: "Up to $30k USDC",
     category: "Content",
-    description: "Restructure, refresh, and modernize Livepeer's documentation so that it is stakeholder-focused, AI-first, and future-proofed.",
+    description: "Restructure, refresh, and modernize Cedra's documentation so that it is stakeholder-focused, AI-first, and future-proofed.",
     fullDescription: `Restructure, refresh, and modernize Livepeer's documentation so that it is stakeholder-focused, AI-first, and future-proofed. It should cater to the core personas of the Livepeer project: developers, delegators, gateway operators and orchestrators.
 
 Current Livepeer docs suffer from:
@@ -150,7 +150,7 @@ Success is a single-source-of-truth documentation system that:
 • Establishes a style guide, contribution model, and ownership playbook for consistency`,
     deadline: "2025-09-24",
     contact: "Rich O'Grady",
-    issuedBy: "Livepeer Foundation"
+    issuedBy: "Cedra Foundation"
   },
   {
     id: 3,
@@ -184,7 +184,7 @@ Timeline:
 • Completion: Friday, Dec 5, 2025`,
     deadline: "2025-10-08",
     contact: "Nick Hollins",
-    issuedBy: "Livepeer Foundation"
+    issuedBy: "Cedra Foundation"
   }
 ];
 
@@ -192,19 +192,19 @@ const mockRecentEarners = [
   {
     name: "Alex Chen",
     avatar: "https://github.com/shadcn.png",
-    description: "Built Livepeer analytics dashboard",
+    description: "Built Cedra analytics dashboard",
     earned: "800 USDC"
   },
   {
     name: "Sarah Kim",
     avatar: "https://github.com/shadcn.png",
-    description: "Designed PeerSurf mobile UI",
+    description: "Designed TeamMove mobile UI",
     earned: "600 USDC"
   },
   {
     name: "Mike Johnson",
     avatar: "https://github.com/shadcn.png",
-    description: "Wrote Livepeer ecosystem guide",
+    description: "Wrote Cedra ecosystem guide",
     earned: "400 USDC"
   }
 ];
@@ -250,39 +250,40 @@ const OpportuniesPage = () => {
       <div className="flex flex-col lg:flex-row max-w-7xl mx-auto">
         {/* Main Content */}
         <div className="flex-1 p-4 sm:p-6">
-          {/* Hero Section - Conditional based on role */}
-          {(!profile?.role || profile?.role === 'SPE') ? (
-            <div className="relative overflow-hidden bg-gradient-to-r from-green-600 to-green-700 rounded-sm p-6 sm:p-8 mb-6 sm:mb-8">
+          {/* Hero Section - Always show for demo mode */}
+          {true ? (
+            <div className="relative overflow-hidden bg-gradient-to-r from-electric-blue to-electric-blue-200 rounded-sm p-6 sm:p-8 mb-6 sm:mb-8">
               <div className="absolute -top-8 -right-8 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-float" />
             <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-foreground/5 rounded-full blur-2xl animate-float" />
               <div className="relative flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 transition-all duration-700 ease-out">
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-4">
                     <Briefcase className="w-6 h-6 sm:w-8 sm:h-8 text-white animate-float" />
-                    <h2 className="text-xl sm:text-2xl font-bold text-white">{profile?.role === 'SPE' ? 'Sponsorship' : 'Become a Sponsor'}</h2>
+                    <h2 className="text-xl sm:text-2xl font-bold text-white">Explore Contests</h2>
                   </div>
-                  <p className="text-green-100 mb-6 max-w-2xl text-sm sm:text-base">
-                    Reach 50,000+ top-tier talent in under 5 clicks. Get high-quality work done across content, development, and design.
+                  <p className="text-white/90 mb-6 max-w-2xl text-sm sm:text-base">
+                    Discover exciting contests and opportunities in the Cedra ecosystem. Compete, build, and earn rewards for your contributions.
                   </p>
                   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                    <Link to={profile?.role === 'SPE' ? '/sponsor' : '/auth?mode=signup&role=SPE'} className="w-full sm:w-auto">
-                      <Button className="bg-foreground text-background hover:opacity-90 px-6 py-3 rounded-lg w-full sm:w-auto">
-                        Get Started
-                      </Button>
-                    </Link>
-                    <span className="text-green-200 text-sm">Join 1,780+ others</span>
+                    <Button 
+                      onClick={() => navigate("/opportunities")}
+                      className="bg-electric-blue text-white hover:bg-electric-blue-50 px-6 py-3 rounded-lg w-full sm:w-auto glow-electric hover:glow-electric-strong"
+                    >
+                      Browse Contests
+                    </Button>
+                    <span className="text-white/80 text-sm">Join 1,780+ others</span>
                   </div>
                 </div>
               </div>
             </div>
           ) : (
-            <div className="relative overflow-hidden bg-gradient-to-r from-green-600 to-green-700 rounded-2xl p-6 sm:p-8 mb-6 sm:mb-8">
+            <div className="relative overflow-hidden bg-gradient-to-r from-electric-blue to-electric-blue-200 rounded-2xl p-6 sm:p-8 mb-6 sm:mb-8">
               <div className="absolute -top-8 -right-8 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-float" />
               <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-foreground/5 rounded-full blur-2xl animate-float" />
               <div className="relative flex items-start justify-between gap-6 transition-all duration-700 ease-out">
                 <div className="flex-1">
                   <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">{`Welcome back, ${profile?.username || user?.user_metadata?.full_name || user?.email?.split('@')[0] || 'there'}`}</h2>
-                  <p className="text-green-100 mb-6 max-w-2xl text-sm sm:text-base">We're so glad to have you on Earn</p>
+                  <p className="text-white/90 mb-6 max-w-2xl text-sm sm:text-base">We're so glad to have you on Earn</p>
                   <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm text-white/80">
                     <span className="px-3 py-1 rounded-full bg-white/10 border border-white/20">Opportunities curated for talent</span>
                     <span className="px-3 py-1 rounded-full bg-white/10 border border-white/20">New listings daily</span>
@@ -300,7 +301,7 @@ const OpportuniesPage = () => {
                 onClick={() => setShowFilters(!showFilters)}
                 className={`flex items-center gap-2 transition-colors ${
                   showFilters 
-                    ? "text-green-400 bg-green-400/10" 
+                    ? "text-electric-blue bg-electric-blue/10" 
                     : "text-muted-foreground hover:text-primary"
                 } px-3 py-2 rounded-lg`}
               >
@@ -317,7 +318,7 @@ const OpportuniesPage = () => {
                   onClick={() => setActiveTab(tab)}
                   className={`px-3 sm:px-4 py-2 rounded-lg font-medium transition-colors whitespace-nowrap ${
                     activeTab === tab
-                      ? "bg-green-600 text-white"
+                      ? "bg-electric-blue text-white"
                       : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
@@ -335,7 +336,7 @@ const OpportuniesPage = () => {
                     onClick={() => setActiveCategory(category)}
                     className={`px-3 py-1 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
                       activeCategory === category
-                        ? "bg-green-600 text-white"
+                        ? "bg-electric-blue text-white"
                         : "bg-muted text-muted-foreground hover:text-foreground"
                     }`}
                   >
@@ -392,7 +393,7 @@ const OpportuniesPage = () => {
 
                   return opportunities.map((opportunity: any) => (
                 <Link key={opportunity.id} to={`/opportunity/${opportunity.id}`} state={{ opportunity: { ...opportunity, type: opportunity.type || "Bounty", status: opportunity.status || "Active" } }}>
-                <Card className="bg-gray-900 border border-gray-700 p-4 sm:p-6 hover:border-green-500/50 transition-colors">
+                <Card className="bg-card border border-border p-4 sm:p-6 hover:border-electric-blue/50 transition-colors hover:glow-electric">
                   <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
                     <div className="flex items-start gap-4 flex-1">
                       <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center flex-shrink-0 ${
@@ -400,16 +401,16 @@ const OpportuniesPage = () => {
                           ? "bg-gradient-to-br from-orange-600 to-orange-800" 
                           : opportunity.type === "Grant"
                           ? "bg-gradient-to-br from-purple-600 to-purple-800"
-                          : "bg-gradient-to-br from-green-600 to-green-800"
+                          : "bg-gradient-to-br from-electric-blue to-electric-blue-200"
                       }`}>
                         <span className="text-white font-bold text-xs sm:text-sm">
-                          {opportunity.type === "RFP" ? "RFP" : opportunity.team ? "PS" : "SP"}
+                          {opportunity.type === "RFP" ? "RFP" : opportunity.team ? "TM" : "SP"}
                         </span>
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1">
                           <h3 className="font-semibold text-white text-sm sm:text-base truncate">{opportunity.title}</h3>
-                          {opportunity.verified && <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />}
+                          {opportunity.verified && <CheckCircle className="w-4 h-4 text-electric-blue flex-shrink-0" />}
                         </div>
                         <p className="text-muted-foreground text-xs sm:text-sm mb-2">{opportunity.team || opportunity.issuedBy || "Community Sponsor"}</p>
                         
@@ -425,7 +426,7 @@ const OpportuniesPage = () => {
                             <Zap className="w-3 h-3 sm:w-4 sm:h-4" />
                             {opportunity.type}
                           </span>
-                          <span className="text-green-400">{opportunity.status || "Active"}</span>
+                          <span className="text-electric-blue">{opportunity.status || "Active"}</span>
                           <span className="flex items-center gap-1 text-muted-foreground">
                             <MessageCircle className="w-3 h-3 sm:w-4 sm:h-4" />
                             {opportunity.comments ?? 0}
@@ -439,7 +440,7 @@ const OpportuniesPage = () => {
                       </div>
                     </div>
                     <div className="text-right sm:text-left">
-                      <div className="text-base sm:text-lg font-bold text-green-400">
+                      <div className="text-base sm:text-lg font-bold text-electric-blue">
                         {opportunity.reward || opportunity.maxAmount || opportunity.avgAmount || ""}
                       </div>
                     </div>
@@ -466,7 +467,7 @@ const OpportuniesPage = () => {
               <h3 className="font-semibold text-white">Menu</h3>
               <button
                 onClick={() => setShowSidebar(false)}
-                className="p-2 text-gray-300 hover:text-green-400 transition-colors"
+                className="p-2 text-gray-300 hover:text-electric-blue transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -488,13 +489,13 @@ const OpportuniesPage = () => {
             ) : (
               <Card className="bg-gray-900 border border-gray-700 p-4 sm:p-6 mb-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <Briefcase className="w-5 h-5 sm:w-6 sm:h-6 text-green-400" />
+                  <Briefcase className="w-5 h-5 sm:w-6 sm:h-6 text-electric-blue" />
                   <h3 className="font-semibold text-white text-sm sm:text-base">{profile?.role === 'SPE' ? 'Sponsorship' : 'Become a Sponsor'}</h3>
                 </div>
                 <p className="text-muted-foreground text-xs sm:text-sm mb-4">
                   Reach 50,000+ crypto talent from one single dashboard.
                 </p>
-                <Button onClick={() => navigate(profile?.role === 'SPE' ? '/sponsor' : '/auth?mode=signup&role=SPE')} className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-500 hover:to-green-600 text-white text-sm">
+                <Button onClick={() => navigate(profile?.role === 'SPE' ? '/sponsor' : '/auth?mode=signup&role=SPE')} className="w-full bg-gradient-to-r from-electric-blue to-electric-blue-200 hover:from-electric-blue-50 hover:to-electric-blue text-white text-sm glow-electric hover:glow-electric-strong">
                   Get Started
                 </Button>
               </Card>
@@ -527,7 +528,7 @@ const OpportuniesPage = () => {
                 <>
                   <div className="flex items-center justify-between p-3 sm:p-4 bg-gray-900 border border-gray-700 rounded-lg">
                     <div className="flex items-center gap-3">
-                      <div className="w-6 h-6 sm:w-8 sm:h-8 bg-green-600 rounded-full flex items-center justify-center">
+                      <div className="w-6 h-6 sm:w-8 sm:h-8 bg-electric-blue rounded-full flex items-center justify-center">
                         <DollarSign className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
                       </div>
                       <div>
@@ -597,7 +598,7 @@ const OpportuniesPage = () => {
             <div>
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-semibold text-white text-sm sm:text-base">RECENT EARNERS</h3>
-                <Link to="/opportunities#leaderboard" className="text-green-400 text-xs sm:text-sm hover:underline">Leaderboard</Link>
+                <Link to="/opportunities#leaderboard" className="text-electric-blue text-xs sm:text-sm hover:underline">Leaderboard</Link>
               </div>
               {loading ? (
                 <div className="space-y-3">
@@ -618,7 +619,7 @@ const OpportuniesPage = () => {
                     <div key={index} className="flex items-center gap-3 p-3 bg-gray-900 border border-gray-700 rounded-lg">
                       <Avatar className="w-6 h-6 sm:w-8 sm:h-8">
                         <AvatarImage src={earner.avatar} />
-                        <AvatarFallback className="bg-green-600 text-white text-xs">
+                        <AvatarFallback className="bg-electric-blue text-white text-xs">
                           {earner.name.split(' ').map(n => n[0]).join('')}
                         </AvatarFallback>
                       </Avatar>
@@ -626,7 +627,7 @@ const OpportuniesPage = () => {
                         <div className="font-medium text-white text-xs sm:text-sm truncate">{earner.name}</div>
                         <div className="text-muted-foreground text-xs truncate">{earner.description}</div>
                       </div>
-                      <div className="text-green-400 text-xs sm:text-sm font-medium">{earner.earned}</div>
+                      <div className="text-electric-blue text-xs sm:text-sm font-medium">{earner.earned}</div>
                     </div>
                   ))}
                 </div>

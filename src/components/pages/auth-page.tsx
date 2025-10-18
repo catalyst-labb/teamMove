@@ -204,21 +204,21 @@ const AuthPage = () => {
                 <button
                   type="button"
                   onClick={() => setRole("talent")}
-                  className={`p-3 rounded-xl border text-sm ${role === "talent" ? "border-green-500 bg-green-500/10 text-green-300" : "border-border bg-card text-foreground"}`}
+                  className={`p-3 rounded-xl border text-sm ${role === "talent" ? "border-electric-blue bg-electric-blue/10 text-electric-blue" : "border-border bg-card text-foreground"}`}
                 >
                   Talent
                 </button>
                 <button
                   type="button"
                   onClick={() => setRole("SPE")}
-                  className={`p-3 rounded-xl border text-sm ${role === "SPE" ? "border-green-500 bg-green-500/10 text-green-300" : "border-border bg-card text-foreground"}`}
+                  className={`p-3 rounded-xl border text-sm ${role === "SPE" ? "border-electric-blue bg-electric-blue/10 text-electric-blue" : "border-border bg-card text-foreground"}`}
                 >
                   SPE
                 </button>
                 <button
                   type="button"
                   onClick={() => setRole("admin")}
-                  className={`p-3 rounded-xl border text-sm ${role === "admin" ? "border-green-500 bg-green-500/10 text-green-300" : "border-border bg-card text-foreground"}`}
+                  className={`p-3 rounded-xl border text-sm ${role === "admin" ? "border-electric-blue bg-electric-blue/10 text-electric-blue" : "border-border bg-card text-foreground"}`}
                 >
                   Admin
                 </button>
@@ -267,7 +267,7 @@ const AuthPage = () => {
               onClick={
                 handleSubmit as (e: MouseEvent<HTMLButtonElement>) => void
               }
-              className="w-full font-semibold bg-gradient-to-r from-green-600 to-green-700 hover:from-green-500 hover:to-green-600"
+              className="w-full font-semibold bg-gradient-to-r from-electric-blue to-electric-blue-200 hover:from-electric-blue-50 hover:to-electric-blue glow-electric hover:glow-electric-strong"
               disabled={loading}
               type="submit"
             >
@@ -302,11 +302,11 @@ const AuthPage = () => {
         <div className="text-center mt-8 pb-8">
           <p className="text-xs text-gray-500">
             By continuing, you agree to our{" "}
-            <a href="/privacy" className="underline hover:no-underline text-gray-400 hover:text-green-400">
+            <a href="/privacy" className="underline hover:no-underline text-gray-400 hover:text-electric-blue">
               Terms of Service
             </a>{" "}
             and{" "}
-            <a href="/privacy" className="underline hover:no-underline text-gray-400 hover:text-green-400">
+            <a href="/privacy" className="underline hover:no-underline text-gray-400 hover:text-electric-blue">
               Privacy Policy
             </a>
           </p>

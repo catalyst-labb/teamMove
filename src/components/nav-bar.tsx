@@ -49,8 +49,8 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center gap-3">
-              <img src="/onyx.png" alt="PeerSurf" className="w-8 h-8" />
-              <span className="font-bold text-lg sm:text-xl text-foreground tracking-tight">PeerSurf</span>
+              <img src="/onyx.png" alt="TeamMove" className="w-8 h-8" />
+              <span className="font-bold text-lg sm:text-xl text-foreground tracking-tight">TeamMove</span>
             </Link>
           </div>
 
@@ -87,7 +87,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-4">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg text-gray-300 hover:text-green-400 transition-colors"
+              className="p-2 rounded-lg text-gray-300 hover:text-electric-blue transition-colors"
               title={isDark ? "Switch to light mode" : "Switch to dark mode"}
             >
               {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
@@ -100,7 +100,7 @@ const Navbar = () => {
                 >
                   <Avatar className="w-9 h-9">
                     <AvatarImage src={profile?.avatar_url || ""} />
-                    <AvatarFallback className="bg-green-700 text-white">
+                    <AvatarFallback className="bg-electric-blue text-white">
                       {(profile?.username || user?.email || "U").slice(0, 2).toUpperCase()}
                     </AvatarFallback>
                   </Avatar>
@@ -138,10 +138,10 @@ const Navbar = () => {
               </div>
             ) : (
               <Button 
-                onClick={() => navigate("/auth?mode=signup")}
-                className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-500 hover:to-green-600 text-white px-4 py-2 rounded-lg"
+                onClick={() => navigate("/opportunities")}
+                className="bg-gradient-to-r from-electric-blue to-electric-blue-200 hover:from-electric-blue-50 hover:to-electric-blue text-white px-4 py-2 rounded-lg glow-electric hover:glow-electric-strong"
               >
-                Launch App
+                Explore Contests
               </Button>
             )}
           </div>
@@ -226,11 +226,11 @@ const Navbar = () => {
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  navigate("/auth?mode=signup");
+                  navigate("/opportunities");
                 }}
-                className="block w-full px-3 py-2 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-sm text-center"
+                className="block w-full px-3 py-2 bg-gradient-to-r from-electric-blue to-electric-blue-200 text-white rounded-sm text-center glow-electric"
               >
-                Launch App
+                Explore Contests
               </button>
             )}
           </div>

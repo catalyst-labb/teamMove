@@ -11,38 +11,38 @@
 
 :root {
   --radius: 0.625rem;
-  /* LIGHT THEME */
-  --background: oklch(0.98 0.002 255);
-  --foreground: oklch(0.18 0.01 255);
-  --card: oklch(0.99 0.001 255);
-  --card-foreground: oklch(0.18 0.01 255);
-  --popover: oklch(0.99 0.001 255);
-  --popover-foreground: oklch(0.18 0.01 255);
-  --primary: oklch(0.65 0.15 145);
-  --primary-foreground: oklch(0.15 0.01 255);
-  --secondary: oklch(0.95 0.02 255);
-  --secondary-foreground: oklch(0.25 0.02 255);
-  --muted: oklch(0.95 0.02 255);
-  --muted-foreground: oklch(0.45 0.02 255);
-  --accent: oklch(0.95 0.02 255);
-  --accent-foreground: oklch(0.25 0.02 255);
-  --destructive: oklch(0.65 0.20 27);
-  --border: oklch(0.92 0.01 255);
-  --input: oklch(0.92 0.01 255);
-  --ring: oklch(0.65 0.15 145);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.99 0.001 255);
-  --sidebar-foreground: oklch(0.18 0.01 255);
-  --sidebar-primary: oklch(0.65 0.15 145);
-  --sidebar-primary-foreground: oklch(0.15 0.01 255);
-  --sidebar-accent: oklch(0.95 0.02 255);
-  --sidebar-accent-foreground: oklch(0.25 0.02 255);
-  --sidebar-border: oklch(0.92 0.01 255);
-  --sidebar-ring: oklch(0.65 0.15 145);
+  /* LIGHT THEME - TeamMove Color Scheme */
+  --background: oklch(0.98 0.002 255); /* Light Gray/Off-White */
+  --foreground: oklch(0.15 0.02 240); /* Deep Navy Blue for text */
+  --card: oklch(0.99 0.001 255); /* White */
+  --card-foreground: oklch(0.15 0.02 240); /* Deep Navy Blue */
+  --popover: oklch(0.99 0.001 255); /* White */
+  --popover-foreground: oklch(0.15 0.02 240); /* Deep Navy Blue */
+  --primary: oklch(0.55 0.25 240); /* Bright Electric Blue */
+  --primary-foreground: oklch(0.99 0.001 255); /* White */
+  --secondary: oklch(0.95 0.02 255); /* Light Gray/Off-White */
+  --secondary-foreground: oklch(0.15 0.02 240); /* Deep Navy Blue */
+  --muted: oklch(0.95 0.02 255); /* Light Gray/Off-White */
+  --muted-foreground: oklch(0.45 0.02 240); /* Muted Deep Navy Blue */
+  --accent: oklch(0.55 0.25 240); /* Bright Electric Blue */
+  --accent-foreground: oklch(0.99 0.001 255); /* White */
+  --destructive: oklch(0.65 0.20 27); /* Red for errors */
+  --border: oklch(0.90 0.01 240); /* Light border */
+  --input: oklch(0.90 0.01 240); /* Light border */
+  --ring: oklch(0.55 0.25 240); /* Bright Electric Blue */
+  --chart-1: oklch(0.55 0.25 240); /* Bright Electric Blue */
+  --chart-2: oklch(0.70 0.20 200); /* Glowing Light Blue/Cyan */
+  --chart-3: oklch(0.15 0.02 240); /* Deep Navy Blue */
+  --chart-4: oklch(0.60 0.15 180); /* Cyan variant */
+  --chart-5: oklch(0.50 0.20 220); /* Blue variant */
+  --sidebar: oklch(0.99 0.001 255); /* White */
+  --sidebar-foreground: oklch(0.15 0.02 240); /* Deep Navy Blue */
+  --sidebar-primary: oklch(0.55 0.25 240); /* Bright Electric Blue */
+  --sidebar-primary-foreground: oklch(0.99 0.001 255); /* White */
+  --sidebar-accent: oklch(0.95 0.02 255); /* Light Gray/Off-White */
+  --sidebar-accent-foreground: oklch(0.15 0.02 240); /* Deep Navy Blue */
+  --sidebar-border: oklch(0.90 0.01 240); /* Light border */
+  --sidebar-ring: oklch(0.55 0.25 240); /* Bright Electric Blue */
   --font-sans: "Inter", "Open Sans", "Raleway", "sans-serif";
   --font-playfair: "Playfair Display", serif;
   --font-inter: "Inter", sans-serif;
@@ -50,38 +50,38 @@
 }
 
 .dark {
-  /* DARK THEME */
-  --background: oklch(0.05 0.01 261.692);
-  --foreground: oklch(0.95 0.002 247.839);
-  --card: oklch(0.1 0.02 264.665);
-  --card-foreground: oklch(0.95 0.002 247.839);
-  --popover: oklch(0.1 0.02 264.665);
-  --popover-foreground: oklch(0.95 0.002 247.839);
-  --primary: oklch(0.15 0.15 120);
-  --primary-foreground: oklch(0.95 0.002 247.839);
-  --secondary: oklch(0.15 0.05 256.848);
-  --secondary-foreground: oklch(0.95 0.002 247.839);
-  --muted: oklch(0.15 0.05 256.848);
-  --muted-foreground: oklch(0.6 0.027 261.325);
-  --accent: oklch(0.15 0.05 256.848);
-  --accent-foreground: oklch(0.95 0.002 247.839);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(0.2 0.02 264.531);
-  --input: oklch(0.2 0.02 264.531);
-  --ring: oklch(0.15 0.15 120);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.1 0.02 264.665);
-  --sidebar-foreground: oklch(0.95 0.002 247.839);
-  --sidebar-primary: oklch(0.15 0.15 120);
-  --sidebar-primary-foreground: oklch(0.95 0.002 247.839);
-  --sidebar-accent: oklch(0.15 0.05 256.848);
-  --sidebar-accent-foreground: oklch(0.95 0.002 247.839);
-  --sidebar-border: oklch(0.2 0.02 264.531);
-  --sidebar-ring: oklch(0.15 0.15 120);
+  /* DARK THEME - TeamMove Color Scheme */
+  --background: oklch(0.08 0.02 240); /* Deep Navy Blue - dominant dark background */
+  --foreground: oklch(0.99 0.001 255); /* White - typography and whitespace */
+  --card: oklch(0.12 0.03 240); /* Slightly lighter Deep Navy Blue for cards */
+  --card-foreground: oklch(0.99 0.001 255); /* White */
+  --popover: oklch(0.12 0.03 240); /* Slightly lighter Deep Navy Blue */
+  --popover-foreground: oklch(0.99 0.001 255); /* White */
+  --primary: oklch(0.55 0.25 240); /* Bright Electric Blue - CTAs and highlights */
+  --primary-foreground: oklch(0.99 0.001 255); /* White */
+  --secondary: oklch(0.15 0.05 240); /* Light Gray/Off-White - subtle backgrounds */
+  --secondary-foreground: oklch(0.99 0.001 255); /* White */
+  --muted: oklch(0.15 0.05 240); /* Light Gray/Off-White - muted elements */
+  --muted-foreground: oklch(0.70 0.02 240); /* Muted white */
+  --accent: oklch(0.55 0.25 240); /* Bright Electric Blue */
+  --accent-foreground: oklch(0.99 0.001 255); /* White */
+  --destructive: oklch(0.704 0.191 22.216); /* Red for errors */
+  --border: oklch(0.20 0.03 240); /* Darker Deep Navy Blue for borders */
+  --input: oklch(0.20 0.03 240); /* Darker Deep Navy Blue for inputs */
+  --ring: oklch(0.55 0.25 240); /* Bright Electric Blue */
+  --chart-1: oklch(0.55 0.25 240); /* Bright Electric Blue */
+  --chart-2: oklch(0.70 0.20 200); /* Glowing Light Blue/Cyan */
+  --chart-3: oklch(0.08 0.02 240); /* Deep Navy Blue */
+  --chart-4: oklch(0.60 0.15 180); /* Cyan variant */
+  --chart-5: oklch(0.50 0.20 220); /* Blue variant */
+  --sidebar: oklch(0.12 0.03 240); /* Slightly lighter Deep Navy Blue */
+  --sidebar-foreground: oklch(0.99 0.001 255); /* White */
+  --sidebar-primary: oklch(0.55 0.25 240); /* Bright Electric Blue */
+  --sidebar-primary-foreground: oklch(0.99 0.001 255); /* White */
+  --sidebar-accent: oklch(0.15 0.05 240); /* Light Gray/Off-White */
+  --sidebar-accent-foreground: oklch(0.99 0.001 255); /* White */
+  --sidebar-border: oklch(0.20 0.03 240); /* Darker Deep Navy Blue */
+  --sidebar-ring: oklch(0.55 0.25 240); /* Bright Electric Blue */
 }
 
 @theme inline {
@@ -174,6 +174,48 @@
     }
   }
 
+  /* TeamMove Custom Colors */
+  .bg-deep-navy {
+    background-color: oklch(0.08 0.02 240);
+  }
+  
+  .bg-electric-blue {
+    background-color: oklch(0.55 0.25 240);
+  }
+  
+  .text-electric-blue {
+    color: oklch(0.55 0.25 240);
+  }
+  
+  .border-electric-blue {
+    border-color: oklch(0.55 0.25 240);
+  }
+  
+  .bg-glow-cyan {
+    background-color: oklch(0.70 0.20 200);
+  }
+  
+  .text-glow-cyan {
+    color: oklch(0.70 0.20 200);
+  }
+
+  /* Glow effects for visual elements */
+  .glow-electric {
+    box-shadow: 0 0 20px oklch(0.55 0.25 240 / 0.3);
+  }
+  
+  .glow-cyan {
+    box-shadow: 0 0 20px oklch(0.70 0.20 200 / 0.3);
+  }
+  
+  .glow-electric-strong {
+    box-shadow: 0 0 40px oklch(0.55 0.25 240 / 0.5);
+  }
+  
+  .glow-cyan-strong {
+    box-shadow: 0 0 40px oklch(0.70 0.20 200 / 0.5);
+  }
+
   /* Floating animation for cosmic elements */
   @keyframes float {
     0%, 100% {
@@ -186,6 +228,22 @@
 
   .animate-float {
     animation: float 6s ease-in-out infinite;
+  }
+
+  /* Glow animation for ethereal effects */
+  @keyframes glow-pulse {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+  }
+
+  .animate-glow {
+    animation: glow-pulse 3s ease-in-out infinite;
   }
 
   /* Line clamp utilities */

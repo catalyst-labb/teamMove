@@ -111,7 +111,7 @@ const Sidebar = ({
         <div className="flex items-center gap-3 mb-4">
           <Avatar className="w-10 h-10">
             <AvatarImage src={profile.avatar_url} />
-            <AvatarFallback className="bg-green-600 text-white">
+            <AvatarFallback className="bg-electric-blue text-white">
               {profile.username?.slice(0, 2)?.toUpperCase() || "U"}
             </AvatarFallback>
           </Avatar>
@@ -130,7 +130,7 @@ const Sidebar = ({
             onClick={() => setActiveSection(item.id)}
             className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${
               activeSection === item.id
-                ? "bg-green-600 text-white"
+                ? "bg-electric-blue text-white"
                 : "text-muted-foreground hover:text-foreground hover:bg-muted"
             }`}
           >
@@ -153,7 +153,7 @@ const Sidebar = ({
                 onClick={() => setActiveSection(item.id)}
                 className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${
                   activeSection === item.id
-                    ? "bg-green-600 text-white"
+                    ? "bg-electric-blue text-white"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted"
                 }`}
               >
@@ -178,7 +178,7 @@ const Sidebar = ({
                 onClick={() => setActiveSection(item.id)}
                 className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${
                   activeSection === item.id
-                    ? "bg-green-600 text-white"
+                    ? "bg-electric-blue text-white"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted"
                 }`}
               >
@@ -215,7 +215,7 @@ const Sidebar = ({
             </Button>
           </div>
                           {requestedRole && (
-                  <div className="mt-3 p-2 bg-green-500/10 border border-green-500/20 rounded text-xs text-green-400">
+                  <div className="mt-3 p-2 bg-electric-blue/10 border border-electric-blue/20 rounded text-xs text-electric-blue">
                     Your role has been updated to {requestedRole} successfully!
                   </div>
                 )}
@@ -355,21 +355,21 @@ const ProfileEditor = ({
                 <button
                   type="button"
                   onClick={() => setEditedProfile({ ...editedProfile, role: "talent" })}
-                  className={`px-3 py-2 rounded-lg border text-sm ${editedProfile.role === "talent" ? "border-green-500 bg-green-500/10 text-green-300" : "border-border bg-muted text-foreground"}`}
+                  className={`px-3 py-2 rounded-lg border text-sm ${editedProfile.role === "talent" ? "border-electric-blue bg-electric-blue/10 text-electric-blue" : "border-border bg-muted text-foreground"}`}
                 >
                   Talent
                 </button>
                 <button
                   type="button"
                   onClick={() => setEditedProfile({ ...editedProfile, role: "SPE" })}
-                  className={`px-3 py-2 rounded-lg border text-sm ${editedProfile.role === "SPE" ? "border-green-500 bg-green-500/10 text-green-300" : "border-border bg-muted text-foreground"}`}
+                  className={`px-3 py-2 rounded-lg border text-sm ${editedProfile.role === "SPE" ? "border-electric-blue bg-electric-blue/10 text-electric-blue" : "border-border bg-muted text-foreground"}`}
                 >
                   SPE
                 </button>
                 <button
                   type="button"
                   onClick={() => setEditedProfile({ ...editedProfile, role: "admin" })}
-                  className={`px-3 py-2 rounded-lg border text-sm ${editedProfile.role === "admin" ? "border-green-500 bg-green-500/10 text-green-300" : "border-border bg-muted text-foreground"}`}
+                  className={`px-3 py-2 rounded-lg border text-sm ${editedProfile.role === "admin" ? "border-electric-blue bg-electric-blue/10 text-electric-blue" : "border-border bg-muted text-foreground"}`}
                 >
                   Admin
                 </button>
@@ -397,7 +397,7 @@ const ProfileEditor = ({
 
           {isEditing && (
             <div className="flex gap-3 pt-4">
-              <Button onClick={handleSave} className="bg-green-600 hover:bg-green-700">
+              <Button onClick={handleSave} className="bg-electric-blue hover:bg-electric-blue-200">
                 <Save className="w-4 h-4 mr-2" />
                 Save Changes
               </Button>
@@ -456,7 +456,7 @@ const DashboardContent = ({ activeSection, profile, dashboardData, userStats, ha
                     <h4 className="font-semibold mb-3">Contributions</h4>
                     <div className="grid grid-cols-3 gap-4 text-center">
                       <div>
-                        <div className="text-2xl font-bold text-green-500">{dashboardData.contributions.weekly}</div>
+                        <div className="text-2xl font-bold text-electric-blue">{dashboardData.contributions.weekly}</div>
                         <div className="text-xs text-muted-foreground">Weekly</div>
                       </div>
                       <div>
@@ -492,7 +492,7 @@ const DashboardContent = ({ activeSection, profile, dashboardData, userStats, ha
                       <div className="text-right">
                         <div className="text-sm font-medium">{project.progress}%</div>
                         <div className="w-20 h-2 bg-gray-200 rounded-full">
-                          <div className="w-full h-2 bg-green-500 rounded-full" style={{ width: `${project.progress}%` }}></div>
+                          <div className="w-full h-2 bg-electric-blue rounded-full" style={{ width: `${project.progress}%` }}></div>
                         </div>
                       </div>
                     </div>
@@ -513,7 +513,7 @@ const DashboardContent = ({ activeSection, profile, dashboardData, userStats, ha
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <span className="text-muted-foreground">Total Payouts Received:</span>
-                    <span className="text-xl font-bold text-green-500">${dashboardData.paymentHistory.totalPayouts}</span>
+                    <span className="text-xl font-bold text-electric-blue">${dashboardData.paymentHistory.totalPayouts}</span>
                   </div>
                   <div>
                     <h4 className="font-semibold mb-3">Completed Bounties</h4>
@@ -524,7 +524,7 @@ const DashboardContent = ({ activeSection, profile, dashboardData, userStats, ha
                             <div className="font-medium">{bounty.name || bounty.title}</div>
                             <div className="text-sm text-muted-foreground">{bounty.completed_at || bounty.date}</div>
                           </div>
-                          <div className="text-green-500 font-semibold">${bounty.amount}</div>
+                          <div className="text-electric-blue font-semibold">${bounty.amount}</div>
                         </div>
                       ))}
                     </div>
@@ -548,7 +548,7 @@ const DashboardContent = ({ activeSection, profile, dashboardData, userStats, ha
               <CardContent>
                 <div className="flex justify-between items-center mb-6">
                   <h3 className="text-lg font-semibold">Active Bounties</h3>
-                  <Button className="bg-green-600 hover:bg-green-700">
+                  <Button className="bg-electric-blue hover:bg-electric-blue-200">
                     <Target className="w-4 h-4 mr-2" />
                     List New Bounty
                   </Button>
@@ -561,7 +561,7 @@ const DashboardContent = ({ activeSection, profile, dashboardData, userStats, ha
                         <p className="text-sm text-muted-foreground">{bounty.applicants || 0} applicants</p>
                       </div>
                       <div className="text-right">
-                        <div className="text-green-500 font-semibold">${bounty.budget}</div>
+                        <div className="text-electric-blue font-semibold">${bounty.budget}</div>
                         <Button variant="outline" size="sm">Manage</Button>
                       </div>
                     </div>
@@ -595,7 +595,7 @@ const DashboardContent = ({ activeSection, profile, dashboardData, userStats, ha
                       <div className="flex gap-2">
                         <Button 
                           size="sm" 
-                          className="bg-green-600 hover:bg-green-700"
+                          className="bg-electric-blue hover:bg-electric-blue-200"
                           onClick={() => handleRoleAction(request.id, 'approve')}
                         >
                           <UserCheck className="w-4 h-4 mr-1" />
@@ -781,7 +781,7 @@ const ProfilePage = () => {
     return (
       <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-500 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-electric-blue mx-auto mb-4"></div>
           <p>{userLoading ? "Loading profile..." : "Loading dashboard data..."}</p>
         </div>
       </div>
@@ -805,7 +805,7 @@ const ProfilePage = () => {
     return (
       <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-500 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-electric-blue mx-auto mb-4"></div>
           <p>Setting up your profile...</p>
         </div>
       </div>

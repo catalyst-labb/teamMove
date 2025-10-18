@@ -23,7 +23,7 @@ const LogoCarousel: React.FC<LogoCarouselProps> = ({ logos, className }) => {
 
     if (hasFailed) {
       return (
-        <div className="w-16 h-16 rounded-lg shadow-md hover:shadow-lg transition-shadow bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center text-white font-bold text-lg">
+        <div className="w-16 h-16 rounded-lg shadow-md hover:shadow-lg transition-shadow bg-gradient-to-br from-electric-blue to-glow-cyan flex items-center justify-center text-white font-bold text-lg">
           {logo.alt.slice(0, 2).toUpperCase()}
         </div>
       );

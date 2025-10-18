@@ -61,7 +61,7 @@ const NotificationsPage: React.FC = () => {
                 <div className="flex items-start gap-3">
                   <div className="mt-0.5">
                     {n.type === 'success' ? (
-                      <CheckCircle2 className="w-5 h-5 text-green-500" />
+                      <CheckCircle2 className="w-5 h-5 text-electric-blue" />
                     ) : n.type === 'info' ? (
                       <Bell className="w-5 h-5 text-blue-400" />
                     ) : (

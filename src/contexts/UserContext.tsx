@@ -72,7 +72,32 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
       try {
         // Check if Supabase is configured
         if (!import.meta.env.VITE_SUPABASE_URL || !import.meta.env.VITE_SUPABASE_ANON_KEY) {
-          console.error("Supabase environment variables are not configured");
+          console.log("Supabase not configured - using demo mode");
+          // Create a mock user for demo purposes
+          const mockUser = {
+            id: "demo-user-123",
+            email: "demo@teammove.xyz",
+            user_metadata: {
+              full_name: "Demo User",
+              username: "demouser"
+            }
+          };
+          const mockProfile = {
+            id: "demo-user-123",
+            username: "demouser",
+            full_name: "Demo User",
+            avatar_url: null,
+            website: null,
+            wallet_address: null,
+            bio: "Demo user exploring TeamMove",
+            role: "talent",
+            total_staked: 0,
+            total_earned: 0,
+            updated_at: new Date().toISOString(),
+            created_at: new Date().toISOString()
+          };
+          setUser(mockUser);
+          setProfile(mockProfile);
           setLoading(false);
           return;
         }
@@ -81,6 +106,31 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setUser(user);
       } catch (error) {
         console.error("Error initializing auth:", error);
+        // Fallback to demo mode on error
+        const mockUser = {
+          id: "demo-user-123",
+          email: "demo@teammove.xyz",
+          user_metadata: {
+            full_name: "Demo User",
+            username: "demouser"
+          }
+        };
+        const mockProfile = {
+          id: "demo-user-123",
+          username: "demouser",
+          full_name: "Demo User",
+          avatar_url: null,
+          website: null,
+          wallet_address: null,
+          bio: "Demo user exploring TeamMove",
+          role: "talent",
+          total_staked: 0,
+          total_earned: 0,
+          updated_at: new Date().toISOString(),
+          created_at: new Date().toISOString()
+        };
+        setUser(mockUser);
+        setProfile(mockProfile);
       } finally {
         setLoading(false);
       }
@@ -88,13 +138,16 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     initializeAuth();
 
-    const { data: listener } = onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
-    });
-    
-    return () => {
-      listener?.subscription.unsubscribe();
-    };
+    // Only set up auth listener if Supabase is configured
+    if (import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY) {
+      const { data: listener } = onAuthStateChange((_event, session) => {
+        setUser(session?.user ?? null);
+      });
+      
+      return () => {
+        listener?.subscription.unsubscribe();
+      };
+    }
   }, []);
 
   // Wrap signUp to also create a profile

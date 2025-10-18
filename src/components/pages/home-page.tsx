@@ -14,7 +14,7 @@ const HomePage = () => {
 
   // Mock data for ecosystem metrics
   const ecosystemMetrics = [
-    { label: "Livepeer Price", value: "$12.45", change: "+5.2%", icon: TrendingUp },
+    { label: "Cedra Price", value: "$0.15", change: "+8.3%", icon: TrendingUp },
     { label: "Total Value Locked", value: "$89.2M", change: "+12.8%", icon: DollarSign },
     { label: "Active Projects", value: "156", change: "+8", icon: Zap },
     { label: "Community Members", value: "12.4K", change: "+234", icon: Users },
@@ -24,26 +24,26 @@ const HomePage = () => {
   const latestNews = [
     {
       id: 1,
-      title: "New Video Streaming Protocol Launched",
-      excerpt: "Revolutionary decentralized video infrastructure now live on mainnet",
+      title: "New Move Layer 1 Protocol Launched",
+      excerpt: "Revolutionary Move-based blockchain infrastructure now live on mainnet",
       source: "Forum",
       time: "2 hours ago",
-      author: "Livepeer Team",
+      author: "Cedra Team",
       avatar: "https://altcoinsbox.com/wp-content/uploads/2023/04/livepeer-logo.png"
     },
     {
       id: 2,
       title: "Community Governance Proposal #42",
-      excerpt: "Proposal to increase staking rewards for active validators",
+      excerpt: "Proposal to increase contest rewards for active builders",
       source: "X (Twitter)",
       time: "4 hours ago",
-      author: "@livepeer_dev",
+      author: "@cedra_dev",
       avatar: "https://pbs.twimg.com/profile_images/1234567890/avatar.jpg"
     },
     {
       id: 3,
-      title: "Developer Spotlight: Video NFT Platform",
-      excerpt: "How one team built a complete video NFT marketplace using Livepeer",
+      title: "Developer Spotlight: DeFi Contest Winner",
+      excerpt: "How one team won the DeFi contest and built a complete DEX on Cedra",
       source: "Blog",
       time: "1 day ago",
       author: "Community",
@@ -55,8 +55,8 @@ const HomePage = () => {
   const spotlightProjects = [
     {
       id: 1,
-      name: "Cloud SPE",
-      description: "Decentralized video NFT marketplace",
+      name: "CedraSwap",
+      description: "Decentralized exchange for Move assets",
       logo: "https://picsum.photos/60/60?random=1",
       status: "Funded",
       amount: "$25,000",
@@ -64,8 +64,8 @@ const HomePage = () => {
     },
     {
       id: 2,
-      name: "Stream.place",
-      description: "Community-governed streaming platform",
+      name: "MoveVault",
+      description: "Community-governed asset management platform",
       logo: "https://picsum.photos/60/60?random=2",
       status: "Active",
       amount: "$18,500",
@@ -73,8 +73,8 @@ const HomePage = () => {
     },
     {
       id: 3,
-      name: "Lisarstake",
-      description: "Professional live streaming toolkit",
+      name: "ContestHub",
+      description: "Professional contest management toolkit",
       logo: "https://picsum.photos/60/60?random=3",
       status: "Completed",
       amount: "$32,000",
@@ -82,8 +82,8 @@ const HomePage = () => {
     },
     {
       id: 4,
-      name: "Gwid.io",
-      description: "DeFi integration for video creators",
+      name: "MoveBuilder",
+      description: "DeFi integration for Move developers",
       logo: "https://picsum.photos/60/60?random=4",
       status: "Funded",
       amount: "$28,500",
@@ -111,16 +111,16 @@ const HomePage = () => {
   const ecosystemNeeds = [
     {
       id: 1,
-      title: "Mobile SDK Development",
-      description: "Create a comprehensive mobile SDK for iOS and Android platforms",
+      title: "Move SDK Development",
+      description: "Create a comprehensive Move SDK for smart contract development",
       category: "Development",
       priority: "High",
       reward: "$15,000 - $25,000"
     },
     {
       id: 2,
-      title: "Content Moderation System",
-      description: "Build AI-powered content moderation for decentralized video",
+      title: "Contest Judging System",
+      description: "Build AI-powered judging system for contest submissions",
       category: "AI/ML",
       priority: "Medium",
       reward: "$20,000 - $35,000"
@@ -128,7 +128,7 @@ const HomePage = () => {
     {
       id: 3,
       title: "Analytics Dashboard",
-      description: "Create comprehensive analytics for video creators and viewers",
+      description: "Create comprehensive analytics for contest participants and sponsors",
       category: "Analytics",
       priority: "Medium",
       reward: "$12,000 - $18,000"
@@ -148,17 +148,17 @@ const HomePage = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Ecosystem Overview</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Discover the current state of the Livepeer ecosystem and track key metrics
+              Discover the current state of the Cedra ecosystem and track key metrics
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {ecosystemMetrics.map((metric, index) => (
-              <Card key={index} className="relative overflow-hidden">
+              <Card key={index} className="relative overflow-hidden hover:glow-electric transition-all duration-300">
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between mb-4">
-                    <div className="p-2 rounded-lg bg-primary/10">
-                    <metric.icon className="w-12 h-12 text-green-600 " />
+                    <div className="p-2 rounded-lg bg-electric-blue/10">
+                    <metric.icon className="w-12 h-12 text-electric-blue" />
                     </div>
                     <Badge variant="secondary" className="text-xs">
                       {metric.change}
@@ -181,13 +181,13 @@ const HomePage = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Latest News & Updates</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Stay updated with the latest developments in the Livepeer ecosystem
+              Stay updated with the latest developments in the Cedra ecosystem
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {latestNews.map((news) => (
-              <Card key={news.id} className="hover:shadow-lg transition-shadow cursor-pointer">
+              <Card key={news.id} className="hover:shadow-lg transition-shadow cursor-pointer hover:glow-electric">
                 <CardHeader className="pb-3">
                   <div className="flex items-center gap-3">
                     <Avatar className="w-10 h-10">
@@ -223,7 +223,7 @@ const HomePage = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Spotlight Projects</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Discover funded projects and top contributors in the Livepeer ecosystem
+              Discover funded projects and top contributors in the Cedra ecosystem
             </p>
           </div>
           
@@ -237,7 +237,7 @@ const HomePage = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {spotlightProjects.map((project) => (
-              <Card key={project.id} className="hover:shadow-lg transition-shadow cursor-pointer">
+              <Card key={project.id} className="hover:shadow-lg transition-shadow cursor-pointer hover:glow-electric">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-4 mb-4">
                     <img 
@@ -259,7 +259,7 @@ const HomePage = () => {
                     {project.description}
                   </p>
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-green-400 font-semibold">{project.amount}</span>
+                    <span className="text-electric-blue font-semibold">{project.amount}</span>
                     <div className="flex items-center gap-1 text-muted-foreground">
                       <Users className="w-4 h-4" />
                       <span>{project.contributors}</span>
@@ -284,7 +284,7 @@ const HomePage = () => {
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
             {ecosystemNeeds.map((need) => (
-              <Card key={need.id} className="hover:shadow-lg transition-shadow">
+              <Card key={need.id} className="hover:shadow-lg transition-shadow hover:glow-electric">
                 <CardHeader>
                   <div className="flex items-center justify-between mb-2">
                     <Badge variant="outline">{need.category}</Badge>
@@ -301,10 +301,10 @@ const HomePage = () => {
                     {need.description}
                   </p>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm font-semibold text-primary">
+                    <span className="text-sm font-semibold text-electric-blue">
                       {need.reward}
                     </span>
-                    <Button variant="ghost" size="sm" className="text-primary">
+                    <Button variant="ghost" size="sm" className="text-electric-blue hover:text-electric-blue-50">
                       <ExternalLink className="w-4 h-4 mr-1" />
                       View Details
                     </Button>
@@ -317,10 +317,10 @@ const HomePage = () => {
           <div className="text-center">
             <Button 
               size="lg"
-              className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-500 hover:to-green-600 text-white px-8 py-3"
+              className="bg-gradient-to-r from-electric-blue to-electric-blue-200 hover:from-electric-blue-50 hover:to-electric-blue text-white px-8 py-3 glow-electric hover:glow-electric-strong"
               onClick={() => navigate("/opportunities")}
             >
-              Explore All Opportunities
+              Explore All Contests
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
           </div>
