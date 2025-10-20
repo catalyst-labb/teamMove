@@ -218,7 +218,7 @@ const CommunityPage = () => {
       date: "2 days ago",
       engagement: "1.2K views",
       description: "Comprehensive tutorial series on Move smart contract development",
-      thumbnail: "https://picsum.photos/300/200?random=1"
+      thumbnail: "https://pbs.twimg.com/media/G3PHh30WsAAybW8?format=jpg&name=900x900"
     },
     {
       id: 2,
@@ -227,7 +227,7 @@ const CommunityPage = () => {
       date: "1 week ago",
       engagement: "850 participants",
       description: "Live Q&A session with Cedra's core development team",
-      thumbnail: "https://picsum.photos/300/200?random=2"
+      thumbnail: "https://pbs.twimg.com/profile_banners/1869029357529747456/1753185510/1080x360"
     },
     {
       id: 3,
@@ -236,7 +236,7 @@ const CommunityPage = () => {
       date: "2 weeks ago",
       engagement: "2.1K likes",
       description: "Showcasing the winning project from our latest contest",
-      thumbnail: "https://picsum.photos/300/200?random=3"
+      thumbnail: "https://pbs.twimg.com/media/G3sk7UWXIAAhFCK?format=jpg&name=900x900"
     }
   ];
 
