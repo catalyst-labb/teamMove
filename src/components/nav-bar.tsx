@@ -49,8 +49,8 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center gap-3">
-              <img src="/onyx.png" alt="TeamMove" className="w-8 h-8" />
-              <span className="font-bold text-lg sm:text-xl text-foreground tracking-tight">TeamMove</span>
+              <img src="/teamMov-logo.png" alt="TeamMove" className="w-12 h-12" />
+              <span className="font-bold text-lg sm:text-xl text-foreground tracking-tight">TeamMov</span>
             </Link>
           </div>
 

@@ -1,11 +1,5 @@
 # TeamMove - Cedra Contribution Engine
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-teammove.vercel.app-blue?style=for-the-badge&logo=vercel)](https://teammove.vercel.app/)
-[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
-[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
-[![Cedra](https://img.shields.io/badge/Cedra-Move%20L1-orange?style=for-the-badge&logo=ethereum&logoColor=white)](https://cedra.network/)
-
 > **A contest-driven ecosystem builder for the Cedra network** - Transforming ecosystem development into high-stakes contests where builders compete, ship, and rise through transparent merit.
 
 ## 🚀 Overview
@@ -18,6 +12,9 @@ TeamMove addresses the critical coordination problem in the Cedra ecosystem by p
 - **On-Chain Reputation** - Sybil-resistant scoring via Cedra mainnet with verifiable contributor badges
 - **Move-Native Integration** - Built with Cedra SDK v0.2, Nightly + Petra wallet authentication
 - **Incubation Pipeline** - Seamless transition for top performers into startup funding and core roles
+- **Seasonal Leaderboards** - Reset-based competition cycles that lower barriers for new contributors
+- **AI-Powered Discovery** - Intelligent chatbot for opportunity matching and Cedra documentation assistance
+- **Personalized Experience** - User persona surveys for targeted content and newsletter customization
 
 ## 🏗️ Architecture
 
@@ -117,11 +114,11 @@ The application uses Supabase with the following key tables:
 
 ### Current MVP Features
 
-- ✅ **Wallet Authentication** - Seamless login with Supabase Auth + Cedra wallets
-- ✅ **Contest Discovery** - Browse bounties, grants, and RFPs with real-time filtering
-- ✅ **User Profiles** - Contributor and SPE profile management with role-based access
+- ✅ **Wallet Authentication** - Seamless login with Google Auth + Cedra wallets
+- ✅ **Contest Discovery** - Browse bounties and grants with real-time filtering
+- ✅ **User Profiles** - Contributor profile management with role-based access
 - ✅ **Submission System** - Submit and manage contest applications
-- ✅ **SPE Dashboard** - Post opportunities and manage applications
+- ✅ **Sponsor Dashboard** - Post opportunities and manage applications
 - ✅ **Real-time Leaderboards** - Live competitive tracking with sub-500ms response
 - ✅ **Responsive Design** - Mobile-first UI with Tailwind CSS
 
@@ -131,12 +128,15 @@ The application uses Supabase with the following key tables:
 - [ ] Contest creation workflows with multi-submission system
 - [ ] Live leaderboards with real-time updates
 - [ ] Wallet authentication (Petra/Nightly) integration
-- [ ] Judging dashboard with hybrid community/expert evaluation
+- [ ] Judging dashboard with sponsor/expert evaluation
 - [ ] Admin tooling for contest management
 - [ ] 15+ Cedra & TeamMove owned contests
 
 #### Milestone 2: Production & Scale (Days 30-60)
 - [ ] On-chain reputation system with Sybil resistance
+- [ ] Seasonal leaderboard resets with fair competition cycles
+- [ ] AI chatbot for opportunity discovery and documentation
+- [ ] User persona surveys and personalized content delivery
 - [ ] Telegram/Discord notification bots
 - [ ] Incubation workflow integration
 - [ ] Comprehensive security audit (Certik or equivalent)
@@ -182,12 +182,7 @@ The application is deployed on Vercel with automatic deployments from the main b
 - `VITE_CEDRA_RPC_URL`
 - `VITE_CEDRA_CHAIN_ID`
 
-### Supabase Functions
 
-Edge functions for payment processing and webhooks:
-
-- `log_funding` - Track funding events
-- `paystack_webhook` - Handle payment webhooks
 
 ## 🤝 Contributing
 
@@ -272,5 +267,3 @@ Solana's builder explosion came from hackathons and bounties that surfaced hidde
 **Built with ❤️ for the Cedra ecosystem**
 
 *$25K Investment → 100x Ecosystem Leverage*
-
-The Contribution Engine creates a self-sustaining flywheel where contest fees fund future growth, top talent builds core infrastructure, and Cedra owns the Move builder narrative. This multiplier effect transforms a modest grant into exponential ecosystem value and sustainable competitive advantage against competing Layer 1s.

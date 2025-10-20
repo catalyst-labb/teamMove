@@ -1,5 +1,7 @@
 import HomePage from "@/components/pages/home-page";
 import OpportuniesPage from "@/components/pages/opportunities-page";
+import TalentPage from "@/components/pages/talent-page";
+import CommunityPage from "@/components/pages/community-page";
 import AuthPage from "@/components/pages/auth-page";
 import ProfilePage from "@/components/pages/profile-page";
 import SponsorDashboard from "@/components/pages/sponsor-dashboard";
@@ -53,7 +55,14 @@ const routes = [
     path: "/opportunities",
     element: <OpportuniesPage />, // Temporarily bypass AuthGuard
   },
-
+  {
+    path: "/talent",
+    element: <TalentPage />, // Temporarily bypass AuthGuard
+  },
+  {
+    path: "/community",
+    element: <CommunityPage />, // Temporarily bypass AuthGuard
+  },
   {
     path: "/opportunity/:id",
     element: <OpportunityDetailPage />,

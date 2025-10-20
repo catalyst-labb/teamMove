@@ -8,9 +8,22 @@ import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { ArrowRight, TrendingUp, Users, DollarSign, Zap, ExternalLink } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import LogoCarousel from "../ui/logo-carousel";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const HomePage = () => {
   const navigate = useNavigate();
+
+  // Initialize AOS
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      offset: 100,
+    });
+  }, []);
 
   // Mock data for ecosystem metrics
   const ecosystemMetrics = [
@@ -29,7 +42,7 @@ const HomePage = () => {
       source: "Forum",
       time: "2 hours ago",
       author: "Cedra Team",
-      avatar: "https://altcoinsbox.com/wp-content/uploads/2023/04/livepeer-logo.png"
+      avatar: ""
     },
     {
       id: 2,
@@ -145,7 +158,7 @@ const HomePage = () => {
       {/* Ecosystem Overview Section */}
       <section className="pb-16 px-4 sm:px-6 lg:px-8  max-w-7xl mx-auto">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12" data-aos="fade-up">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Ecosystem Overview</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Discover the current state of the Cedra ecosystem and track key metrics
@@ -154,7 +167,12 @@ const HomePage = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {ecosystemMetrics.map((metric, index) => (
-              <Card key={index} className="relative overflow-hidden hover:glow-electric transition-all duration-300">
+              <Card 
+                key={index} 
+                className="relative overflow-hidden hover:glow-electric transition-all duration-300"
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
+              >
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between mb-4">
                     <div className="p-2 rounded-lg bg-electric-blue/10">
@@ -178,7 +196,7 @@ const HomePage = () => {
       {/* Latest News & Updates Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/20 max-w-7xl mx-auto">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12" data-aos="fade-up">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Latest News & Updates</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Stay updated with the latest developments in the Cedra ecosystem
@@ -186,8 +204,13 @@ const HomePage = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {latestNews.map((news) => (
-              <Card key={news.id} className="hover:shadow-lg transition-shadow cursor-pointer hover:glow-electric">
+            {latestNews.map((news, index) => (
+              <Card 
+                key={news.id} 
+                className="hover:shadow-lg transition-shadow cursor-pointer hover:glow-electric"
+                data-aos="fade-up"
+                data-aos-delay={index * 150}
+              >
                 <CardHeader className="pb-3">
                   <div className="flex items-center gap-3">
                     <Avatar className="w-10 h-10">
@@ -220,7 +243,7 @@ const HomePage = () => {
       {/* Spotlight Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12" data-aos="fade-up">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Spotlight Projects</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Discover funded projects and top contributors in the Cedra ecosystem
@@ -228,16 +251,20 @@ const HomePage = () => {
           </div>
           
           {/* Logo Carousel */}
-          <div className="mb-12">
-            
+          <div className="mb-12" data-aos="fade-up" data-aos-delay="200">
             <div className="h-24">
               <LogoCarousel logos={projectLogos} className="h-full" />
             </div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {spotlightProjects.map((project) => (
-              <Card key={project.id} className="hover:shadow-lg transition-shadow cursor-pointer hover:glow-electric">
+            {spotlightProjects.map((project, index) => (
+              <Card 
+                key={project.id} 
+                className="hover:shadow-lg transition-shadow cursor-pointer hover:glow-electric"
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
+              >
                 <CardContent className="p-6">
                   <div className="flex items-center gap-4 mb-4">
                     <img 
@@ -275,7 +302,7 @@ const HomePage = () => {
       {/* Ecosystem Needs CTA Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary/5 to-primary/10 max-w-7xl mx-auto">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12" data-aos="fade-up">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Ideas & RFPs</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Explore open-ended project ideas and specific Requests for Projects (RFPs)
@@ -283,8 +310,13 @@ const HomePage = () => {
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-            {ecosystemNeeds.map((need) => (
-              <Card key={need.id} className="hover:shadow-lg transition-shadow hover:glow-electric">
+            {ecosystemNeeds.map((need, index) => (
+              <Card 
+                key={need.id} 
+                className="hover:shadow-lg transition-shadow hover:glow-electric"
+                data-aos="fade-up"
+                data-aos-delay={index * 150}
+              >
                 <CardHeader>
                   <div className="flex items-center justify-between mb-2">
                     <Badge variant="outline">{need.category}</Badge>
@@ -314,7 +346,7 @@ const HomePage = () => {
             ))}
           </div>
           
-          <div className="text-center">
+          <div className="text-center" data-aos="fade-up" data-aos-delay="600">
             <Button 
               size="lg"
               className="bg-gradient-to-r from-electric-blue to-electric-blue-200 hover:from-electric-blue-50 hover:to-electric-blue text-white px-8 py-3 glow-electric hover:glow-electric-strong"

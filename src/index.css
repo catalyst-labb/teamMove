@@ -280,6 +280,64 @@
     animation-play-state: paused;
   }
 
+  /* Custom scrollbar for chatbot */
+  .chatbot-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .chatbot-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 4px;
+  }
+
+  .chatbot-scrollbar::-webkit-scrollbar-thumb {
+    background: oklch(0.55 0.25 240 / 0.3);
+    border-radius: 4px;
+    transition: background 0.2s ease;
+    border: 1px solid transparent;
+    background-clip: content-box;
+  }
+
+  .chatbot-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.55 0.25 240 / 0.5);
+  }
+
+  .chatbot-scrollbar::-webkit-scrollbar-thumb:active {
+    background: oklch(0.55 0.25 240 / 0.7);
+  }
+
+  .chatbot-scrollbar::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  /* Firefox scrollbar */
+  .chatbot-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: oklch(0.55 0.25 240 / 0.3) transparent;
+  }
+
+  /* Mobile scrollbar adjustments */
+  @media (max-width: 640px) {
+    .chatbot-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+  }
+
+  /* Chatbot responsive adjustments */
+  @media (max-height: 500px) {
+    .chatbot-container {
+      height: calc(100vh - 1rem) !important;
+      max-height: calc(100vh - 1rem) !important;
+    }
+  }
+
+  @media (max-height: 400px) {
+    .chatbot-container {
+      height: calc(100vh - 0.5rem) !important;
+      max-height: calc(100vh - 0.5rem) !important;
+    }
+  }
+
   /* Embla Carousel Styles */
   .embla {
     overflow: hidden;
@@ -297,5 +355,218 @@
     position: relative;
     min-width: 0;
     flex-shrink: 0;
+  }
+
+  /* Talent Page Premium Animations */
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200px 0;
+    }
+    100% {
+      background-position: calc(200px + 100%) 0;
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px oklch(0.55 0.25 240 / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px oklch(0.55 0.25 240 / 0.6);
+    }
+  }
+
+  @keyframes rank-glow {
+    0%, 100% {
+      box-shadow: 0 0 10px oklch(0.55 0.25 240 / 0.2);
+    }
+    50% {
+      box-shadow: 0 0 25px oklch(0.55 0.25 240 / 0.4);
+    }
+  }
+
+  @keyframes badge-bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-2px);
+    }
+  }
+
+  /* Talent Page Animation Classes */
+  .animate-slide-in-up {
+    animation: slideInUp 0.6s ease-out;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out;
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(
+      90deg,
+      oklch(0.12 0.03 240) 0px,
+      oklch(0.15 0.05 240) 40px,
+      oklch(0.12 0.03 240) 80px
+    );
+    background-size: 200px 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-rank-glow {
+    animation: rank-glow 3s ease-in-out infinite;
+  }
+
+  .animate-badge-bounce {
+    animation: badge-bounce 2s ease-in-out infinite;
+  }
+
+  /* Staggered animations for leaderboard items */
+  .leaderboard-item {
+    animation: slideInUp 0.6s ease-out;
+    animation-fill-mode: both;
+  }
+
+  .leaderboard-item:nth-child(1) { animation-delay: 0.1s; }
+  .leaderboard-item:nth-child(2) { animation-delay: 0.2s; }
+  .leaderboard-item:nth-child(3) { animation-delay: 0.3s; }
+  .leaderboard-item:nth-child(4) { animation-delay: 0.4s; }
+  .leaderboard-item:nth-child(5) { animation-delay: 0.5s; }
+  .leaderboard-item:nth-child(6) { animation-delay: 0.6s; }
+  .leaderboard-item:nth-child(7) { animation-delay: 0.7s; }
+  .leaderboard-item:nth-child(8) { animation-delay: 0.8s; }
+
+  /* Premium hover effects */
+  .talent-card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .talent-card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px oklch(0.55 0.25 240 / 0.15);
+  }
+
+  /* Rank badge special effects */
+  .rank-badge-gold {
+    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+  }
+
+  .rank-badge-silver {
+    background: linear-gradient(135deg, #c0c0c0, #e8e8e8);
+    box-shadow: 0 0 20px rgba(192, 192, 192, 0.4);
+  }
+
+  .rank-badge-bronze {
+    background: linear-gradient(135deg, #cd7f32, #ffa500);
+    box-shadow: 0 0 20px rgba(205, 127, 50, 0.4);
+  }
+
+  /* Tier gradient effects */
+  .tier-diamond {
+    background: linear-gradient(135deg, #b9f2ff, #ffd700);
+    background-size: 200% 200%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  .tier-platinum {
+    background: linear-gradient(135deg, #e5e4e2, #b8b8b8);
+  }
+
+  .tier-gold {
+    background: linear-gradient(135deg, #ffd700, #ffed4e);
+  }
+
+  .tier-silver {
+    background: linear-gradient(135deg, #c0c0c0, #e8e8e8);
+  }
+
+  .tier-bronze {
+    background: linear-gradient(135deg, #cd7f32, #ffa500);
+  }
+
+  /* Stats counter animation */
+  .stat-counter {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Loading skeleton shimmer */
+  .skeleton-shimmer {
+    background: linear-gradient(
+      90deg,
+      oklch(0.12 0.03 240) 0px,
+      oklch(0.15 0.05 240) 40px,
+      oklch(0.12 0.03 240) 80px
+    );
+    background-size: 200px 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    .leaderboard-item {
+      animation-delay: 0s !important;
+    }
+    
+    .talent-card-hover:hover {
+      transform: none;
+    }
   }
 }

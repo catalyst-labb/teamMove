@@ -3,6 +3,8 @@ import routes from "./routes/routes";
 import { UserProvider } from "./contexts/UserContext";
 import { NotificationsProvider } from "./contexts/NotificationsContext";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { ChatbotProvider } from "./contexts/ChatbotContext";
+import Chatbot from "./components/Chatbot";
 
 function App() {
   const routing = useRoutes(routes);
@@ -10,7 +12,10 @@ function App() {
     <ThemeProvider>
       <UserProvider>
         <NotificationsProvider>
-          <main>{routing}</main>
+          <ChatbotProvider>
+            <main>{routing}</main>
+            <Chatbot />
+          </ChatbotProvider>
         </NotificationsProvider>
       </UserProvider>
     </ThemeProvider>

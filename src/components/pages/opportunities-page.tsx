@@ -258,7 +258,7 @@ const OpportuniesPage = () => {
               <div className="relative flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 transition-all duration-700 ease-out">
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-4">
-                    <Briefcase className="w-6 h-6 sm:w-8 sm:h-8 text-white animate-float" />
+                    <Briefcase className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                     <h2 className="text-xl sm:text-2xl font-bold text-white">Explore Contests</h2>
                   </div>
                   <p className="text-white/90 mb-6 max-w-2xl text-sm sm:text-base">
@@ -267,7 +267,7 @@ const OpportuniesPage = () => {
                   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                     <Button 
                       onClick={() => navigate("/opportunities")}
-                      className="bg-electric-blue text-white hover:bg-electric-blue-50 px-6 py-3 rounded-lg w-full sm:w-auto glow-electric hover:glow-electric-strong"
+                      className="bg-white text-electric-blue hover:bg-electric-blue/10 px-6 py-3 rounded-sm w-full sm:w-auto glow-electric hover:glow-electric-strong"
                     >
                       Browse Contests
                     </Button>
@@ -409,7 +409,7 @@ const OpportuniesPage = () => {
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1">
-                          <h3 className="font-semibold text-white text-sm sm:text-base truncate">{opportunity.title}</h3>
+                          <h3 className="font-semibold text-foreground text-sm sm:text-base truncate">{opportunity.title}</h3>
                           {opportunity.verified && <CheckCircle className="w-4 h-4 text-electric-blue flex-shrink-0" />}
                         </div>
                         <p className="text-muted-foreground text-xs sm:text-sm mb-2">{opportunity.team || opportunity.issuedBy || "Community Sponsor"}</p>
@@ -487,10 +487,10 @@ const OpportuniesPage = () => {
                 <Skeleton className="h-9 w-full rounded-sm" />
               </Card>
             ) : (
-              <Card className="bg-gray-900 border border-gray-700 p-4 sm:p-6 mb-6">
+              <Card className="shadow-sm border border-gray-700 p-4 sm:p-6 mb-6">
                 <div className="flex items-center gap-3 mb-4">
                   <Briefcase className="w-5 h-5 sm:w-6 sm:h-6 text-electric-blue" />
-                  <h3 className="font-semibold text-white text-sm sm:text-base">{profile?.role === 'SPE' ? 'Sponsorship' : 'Become a Sponsor'}</h3>
+                  <h3 className="font-semibold text-foreground text-sm sm:text-base">{profile?.role === 'SPE' ? 'Sponsorship' : 'Become a Sponsor'}</h3>
                 </div>
                 <p className="text-muted-foreground text-xs sm:text-sm mb-4">
                   Reach 50,000+ crypto talent from one single dashboard.
@@ -526,25 +526,25 @@ const OpportuniesPage = () => {
                 </>
               ) : (
                 <>
-                  <div className="flex items-center justify-between p-3 sm:p-4 bg-gray-900 border border-gray-700 rounded-lg">
+                  <div className="flex items-center justify-between p-3 sm:p-4  border border-gray-200 shadow-lg rounded-lg">
                     <div className="flex items-center gap-3">
                       <div className="w-6 h-6 sm:w-8 sm:h-8 bg-electric-blue rounded-full flex items-center justify-center">
                         <DollarSign className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
                       </div>
                       <div>
                         <div className="text-xs sm:text-sm text-muted-foreground">Total Value Earned</div>
-                        <div className="font-bold text-white text-sm sm:text-base">$7,654,510 USD</div>
+                        <div className="font-bold text-foreground text-sm sm:text-base">$7,654,510 USD</div>
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center justify-between p-3 sm:p-4 bg-gray-900 border border-gray-700 rounded-lg">
+                  <div className="flex items-center justify-between p-3 sm:p-4 border border-gray-400 shadow-lg rounded-lg">
                     <div className="flex items-center gap-3">
                       <div className="w-6 h-6 sm:w-8 sm:h-8 bg-purple-600 rounded-full flex items-center justify-center">
                         <Briefcase className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
                       </div>
                       <div>
                         <div className="text-xs sm:text-sm text-muted-foreground">Opportunities Listed</div>
-                        <div className="font-bold text-white text-sm sm:text-base">
+                        <div className="font-bold text-foreground text-sm sm:text-base">
                           {loading ? "..." : 
                             (dynBounties.length || mockBounties.length) + 
                             (dynGrants.length || mockGrants.length) + 
@@ -597,8 +597,7 @@ const OpportuniesPage = () => {
             {/* Recent Earners */}
             <div>
               <div className="flex items-center justify-between mb-4">
-                <h3 className="font-semibold text-white text-sm sm:text-base">RECENT EARNERS</h3>
-                <Link to="/opportunities#leaderboard" className="text-electric-blue text-xs sm:text-sm hover:underline">Leaderboard</Link>
+                <h3 className="font-semibold text-foreground text-sm sm:text-base">RECENT EARNERS</h3>
               </div>
               {loading ? (
                 <div className="space-y-3">
@@ -616,7 +615,7 @@ const OpportuniesPage = () => {
               ) : (
                 <div className="space-y-3">
                   {mockRecentEarners.map((earner, index) => (
-                    <div key={index} className="flex items-center gap-3 p-3 bg-gray-900 border border-gray-700 rounded-lg">
+                    <div key={index} className="flex items-center gap-3 p-3 bg-gray-300 border border-gray-700 rounded-lg">
                       <Avatar className="w-6 h-6 sm:w-8 sm:h-8">
                         <AvatarImage src={earner.avatar} />
                         <AvatarFallback className="bg-electric-blue text-white text-xs">
@@ -624,7 +623,7 @@ const OpportuniesPage = () => {
                         </AvatarFallback>
                       </Avatar>
                       <div className="flex-1 min-w-0">
-                        <div className="font-medium text-white text-xs sm:text-sm truncate">{earner.name}</div>
+                        <div className="font-medium text-foreground text-xs sm:text-sm truncate">{earner.name}</div>
                         <div className="text-muted-foreground text-xs truncate">{earner.description}</div>
                       </div>
                       <div className="text-electric-blue text-xs sm:text-sm font-medium">{earner.earned}</div>
