@@ -212,7 +212,6 @@ const TalentPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [showFilters, setShowFilters] = useState(false);
   const [loading, setLoading] = useState(false);
-  const { user, profile } = useUser();
   const navigate = useNavigate();
 
   const tabs = ["Leaderboard", "Activity", "Badges", "Stats"];
