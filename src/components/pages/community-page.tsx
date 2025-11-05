@@ -25,7 +25,7 @@ import {
   ThumbsUp,
   Eye
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../nav-bar";
 import Footer from "../footer";
@@ -34,7 +34,6 @@ import "aos/dist/aos.css";
 
 const CommunityPage = () => {
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(true);
 
   // Initialize AOS
   useEffect(() => {
@@ -44,13 +43,6 @@ const CommunityPage = () => {
       once: true,
       offset: 100,
     });
-    
-    // Simulate loading
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-    
-    return () => clearTimeout(timer);
   }, []);
 
   // Cedra social media handles and platforms
@@ -240,20 +232,7 @@ const CommunityPage = () => {
     }
   ];
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-background text-foreground">
-        <Navbar />
-        <div className="flex items-center justify-center min-h-[60vh]">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-electric-blue mx-auto mb-4"></div>
-            <p className="text-muted-foreground">Loading community...</p>
-          </div>
-        </div>
-        <Footer />
-      </div>
-    );
-  }
+  
 
   return (
     <div className="min-h-screen bg-background text-foreground">

@@ -8,7 +8,9 @@ import {
   Briefcase,
   Zap,
   DollarSign,
-  X
+  X,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -20,40 +22,212 @@ import { Skeleton } from "../ui/skeleton";
 // Mock data for opportunities
 const mockBounties = [
   {
-    id: 1,
-    title: "Build Cedra Analytics Dashboard",
-    team: "TeamMove Labs",
+    id: 74,
+    title: "Basic Referral Tracking Contract",
+    team: "Cedra",
     verified: true,
     type: "Bounty",
-    status: "Active",
-    comments: 12,
-    reward: "800 USDC",
+    status: "Open",
+    comments: 1,
+    reward: "",
     category: "Development",
-    description: "Create a comprehensive analytics dashboard for Cedra ecosystem"
+    description: "#74 In cedra-labs/docs",
+    issueNumber: 74
   },
   {
-    id: 2,
-    title: "Design TeamMove Mobile App UI",
-    team: "TeamMove Design",
+    id: 73,
+    title: "Add Burn Function to FA Example",
+    team: "Cedra",
     verified: true,
     type: "Bounty",
-    status: "Active",
-    comments: 8,
-    reward: "600 USDC",
-    category: "Design",
-    description: "Design the mobile app interface for TeamMove platform"
+    status: "Open",
+    comments: 0,
+    reward: "",
+    category: "Development",
+    description: "#73 In cedra-labs/docs",
+    issueNumber: 73
   },
   {
-    id: 3,
-    title: "Write Cedra Ecosystem Guide",
-    team: "TeamMove Content",
+    id: 72,
+    title: "Basic Yes/No Voting Implementation",
+    team: "Cedra",
     verified: true,
     type: "Bounty",
-    status: "Active",
-    comments: 5,
-    reward: "400 USDC",
+    status: "Open",
+    comments: 0,
+    reward: "",
+    category: "Development",
+    description: "#72 In cedra-labs/docs",
+    issueNumber: 72
+  },
+  {
+    id: 71,
+    title: "Expand NFT Example with More Use Cases",
+    team: "Cedra",
+    verified: true,
+    type: "Bounty",
+    status: "Open",
+    comments: 0,
+    reward: "",
+    category: "Development",
+    description: "#71 In cedra-labs/docs",
+    issueNumber: 71
+  },
+  {
+    id: 70,
+    title: "Random Number Lottery Example",
+    team: "Cedra",
+    verified: true,
+    type: "Bounty",
+    status: "Open",
+    comments: 0,
+    reward: "",
+    category: "Development",
+    description: "#70 In cedra-labs/docs",
+    issueNumber: 70
+  },
+  {
+    id: 69,
+    title: "How to Publish Modules on Cedra",
+    team: "Cedra",
+    verified: true,
+    type: "Bounty",
+    status: "Open",
+    comments: 1,
+    reward: "",
     category: "Content",
-    description: "Create comprehensive documentation for Cedra ecosystem"
+    description: "#69 In cedra-labs/docs",
+    issueNumber: 69
+  },
+  {
+    id: 68,
+    title: "Common Error Patterns in Move",
+    team: "Cedra",
+    verified: true,
+    type: "Bounty",
+    status: "Open",
+    comments: 0,
+    reward: "",
+    category: "Content",
+    description: "#68 In cedra-labs/docs",
+    issueNumber: 68
+  },
+  {
+    id: 67,
+    title: "Common Move Patterns Snippets",
+    team: "Cedra",
+    verified: true,
+    type: "Bounty",
+    status: "Open",
+    comments: 1,
+    reward: "",
+    category: "Content",
+    description: "#67 In cedra-labs/docs",
+    issueNumber: 67
+  },
+  {
+    id: 66,
+    title: "Dutch Auction Contract (Descending Price)",
+    team: "Cedra",
+    verified: true,
+    type: "Bounty",
+    status: "Open",
+    comments: 0,
+    reward: "",
+    category: "Development",
+    description: "#66 In cedra-labs/docs",
+    issueNumber: 66
+  },
+  {
+    id: 65,
+    title: "English Auction Contract (Ascending Price)",
+    team: "Cedra",
+    verified: true,
+    type: "Bounty",
+    status: "Open",
+    comments: 0,
+    reward: "",
+    category: "Development",
+    description: "#65 In cedra-labs/docs",
+    issueNumber: 65
+  },
+  {
+    id: 64,
+    title: "Upgradeability Patterns in Move",
+    team: "Cedra",
+    verified: true,
+    type: "Bounty",
+    status: "Open",
+    comments: 0,
+    reward: "",
+    category: "Development",
+    description: "#64 In cedra-labs/docs",
+    issueNumber: 64
+  },
+  {
+    id: 63,
+    title: "Event Indexing Guide",
+    team: "Cedra",
+    verified: true,
+    type: "Bounty",
+    status: "Open",
+    comments: 0,
+    reward: "",
+    category: "Content",
+    description: "#63 In cedra-labs/docs",
+    issueNumber: 63
+  },
+  {
+    id: 62,
+    title: "Create Any Technical Guide for Cedra",
+    team: "Cedra",
+    verified: true,
+    type: "Bounty",
+    status: "Open",
+    comments: 0,
+    reward: "",
+    category: "Content",
+    description: "#62 In cedra-labs/docs",
+    issueNumber: 62
+  },
+  {
+    id: 61,
+    title: "Build Any On-Chain Game Mechanic",
+    team: "Cedra",
+    verified: true,
+    type: "Bounty",
+    status: "Open",
+    comments: 0,
+    reward: "",
+    category: "Development",
+    description: "#61 In cedra-labs/docs",
+    issueNumber: 61
+  },
+  {
+    id: 60,
+    title: "Deep Dive into Any Undocumented Cedra Feature",
+    team: "Cedra",
+    verified: true,
+    type: "Bounty",
+    status: "Open",
+    comments: 1,
+    reward: "",
+    category: "Content",
+    description: "#60 In cedra-labs/docs",
+    issueNumber: 60
+  },
+  {
+    id: 59,
+    title: "Enhance Existing Contract Example",
+    team: "Cedra",
+    verified: true,
+    type: "Bounty",
+    status: "Open",
+    comments: 0,
+    reward: "",
+    category: "Development",
+    description: "#59 In cedra-labs/docs",
+    issueNumber: 59
   }
 ];
 
@@ -191,29 +365,42 @@ Timeline:
 const mockRecentEarners = [
   {
     name: "Alex Chen",
-    avatar: "https://github.com/shadcn.png",
+    avatar: "https://randomuser.me/api/portraits/men/25.jpg",
     description: "Built Cedra analytics dashboard",
     earned: "800 USDC"
   },
   {
     name: "Sarah Kim",
-    avatar: "https://github.com/shadcn.png",
+    avatar: "https://randomuser.me/api/portraits/women/65.jpg",
     description: "Designed TeamMove mobile UI",
     earned: "600 USDC"
   },
   {
     name: "Mike Johnson",
-    avatar: "https://github.com/shadcn.png",
+    avatar: "https://randomuser.me/api/portraits/men/43.jpg",
     description: "Wrote Cedra ecosystem guide",
     earned: "400 USDC"
   }
 ];
+
+// Helper function to get team logo
+const getTeamLogo = (team: string | undefined, issuedBy: string | undefined): string | null => {
+  const teamName = team || issuedBy || "";
+  if (teamName.toLowerCase().includes("cedra")) {
+    return "/cedra_logo.webp";
+  }
+  if (teamName.toLowerCase().includes("teammove") || teamName.toLowerCase().includes("teammov")) {
+    return "/teamMov-logo.png";
+  }
+  return null;
+};
 
 const OpportuniesPage = () => {
   const [activeTab, setActiveTab] = useState("All");
   const [activeCategory, setActiveCategory] = useState("All");
   const [showSidebar, setShowSidebar] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
+  const [bountyPage, setBountyPage] = useState(1);
   const { user, profile } = useUser();
   const navigate = useNavigate();
 
@@ -239,7 +426,7 @@ const OpportuniesPage = () => {
   }, []);
 
   const categories = ["All", "Content", "Design", "Development", "Events", "Other"];
-  const tabs = ["All", "Bounties", "Grants", "RFPs"];
+  const tabs = ["All", "Bounties", "RFPs"];
 
 
   return (
@@ -255,14 +442,20 @@ const OpportuniesPage = () => {
             <div className="relative overflow-hidden bg-gradient-to-r from-electric-blue to-electric-blue-200 rounded-sm p-6 sm:p-8 mb-6 sm:mb-8">
               <div className="absolute -top-8 -right-8 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-float" />
             <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-foreground/5 rounded-full blur-2xl animate-float" />
+              {/* Decorative banner image on the right */}
+              <img
+                src="/erased_01.png"
+                alt=""
+                className="hidden sm:block absolute right-0 bottom-0 top-0 h-full object-contain pointer-events-none select-none"
+              />
               <div className="relative flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 transition-all duration-700 ease-out">
                 <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-4">
-                    <Briefcase className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-                    <h2 className="text-xl sm:text-2xl font-bold text-white">Explore Contests</h2>
+                  <div className="flex items-center mb-4">
+                    <span className="text-yellow-500 text-2xl">🔥</span>
+                    <h2 className="text-xl sm:text-2xl font-bold text-white">Cedra Forge S1 </h2>
                   </div>
                   <p className="text-white/90 mb-6 max-w-2xl text-sm sm:text-base">
-                    Discover exciting contests and opportunities in the Cedra ecosystem. Compete, build, and earn rewards for your contributions.
+                  Now Accepting Submissions - Discover exciting contests and opportunities in the Cedra ecosystem. Compete, build, and earn rewards for your contributions.
                   </p>
                   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                     <Button 
@@ -315,7 +508,10 @@ const OpportuniesPage = () => {
               {tabs.map((tab) => (
                 <button
                   key={tab}
-                  onClick={() => setActiveTab(tab)}
+                  onClick={() => {
+                    setActiveTab(tab);
+                    setBountyPage(1); // Reset to first page when switching tabs
+                  }}
                   className={`px-3 sm:px-4 py-2 rounded-lg font-medium transition-colors whitespace-nowrap ${
                     activeTab === tab
                       ? "bg-electric-blue text-white"
@@ -333,7 +529,10 @@ const OpportuniesPage = () => {
                 {categories.map((category) => (
                   <button
                     key={category}
-                    onClick={() => setActiveCategory(category)}
+                    onClick={() => {
+                      setActiveCategory(category);
+                      setBountyPage(1); // Reset to first page when changing category
+                    }}
                     className={`px-3 py-1 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
                       activeCategory === category
                         ? "bg-electric-blue text-white"
@@ -353,7 +552,7 @@ const OpportuniesPage = () => {
                   <Card key={`bounty-skel-${i}`} className="bg-card border border-border p-4 sm:p-6">
                     <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
                       <div className="flex items-start gap-4 flex-1">
-                        <Skeleton className="w-12 h-12 rounded-lg" />
+                        <Skeleton className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg" />
                         <div className="flex-1 min-w-0 space-y-2">
                           <Skeleton className="h-4 w-3/4" />
                           <Skeleton className="h-3 w-1/3" />
@@ -372,16 +571,14 @@ const OpportuniesPage = () => {
                 // Show opportunities based on active tab
                 (() => {
                   let opportunities: any[] = [];
+                  
                   if (activeTab === "All") {
                     opportunities = [
                       ...(dynBounties.length ? dynBounties : mockBounties),
-                      ...(dynGrants.length ? dynGrants : mockGrants),
                       ...(dynRFPs.length ? dynRFPs : mockRFPs)
                     ];
                   } else if (activeTab === "Bounties") {
                     opportunities = dynBounties.length ? dynBounties : mockBounties;
-                  } else if (activeTab === "Grants") {
-                    opportunities = dynGrants.length ? dynGrants : mockGrants;
                   } else if (activeTab === "RFPs") {
                     opportunities = dynRFPs.length ? dynRFPs : mockRFPs;
                   }
@@ -391,22 +588,47 @@ const OpportuniesPage = () => {
                     opportunities = opportunities.filter((opp: any) => opp.category === activeCategory);
                   }
 
-                  return opportunities.map((opportunity: any) => (
+                  // Pagination for all tabs and categories (5 per page)
+                  const ITEMS_PER_PAGE = 5;
+                  const totalPages = Math.ceil(opportunities.length / ITEMS_PER_PAGE);
+                  const startIndex = (bountyPage - 1) * ITEMS_PER_PAGE;
+                  const endIndex = startIndex + ITEMS_PER_PAGE;
+                  const paginatedOpportunities = opportunities.slice(startIndex, endIndex);
+
+                  return (
+                    <>
+                      {paginatedOpportunities.map((opportunity: any) => (
                 <Link key={opportunity.id} to={`/opportunity/${opportunity.id}`} state={{ opportunity: { ...opportunity, type: opportunity.type || "Bounty", status: opportunity.status || "Active" } }}>
                 <Card className="bg-card border border-border p-4 sm:p-6 hover:border-electric-blue/50 transition-colors hover:glow-electric">
                   <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
                     <div className="flex items-start gap-4 flex-1">
-                      <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                        opportunity.type === "RFP" 
-                          ? "bg-gradient-to-br from-orange-600 to-orange-800" 
-                          : opportunity.type === "Grant"
-                          ? "bg-gradient-to-br from-purple-600 to-purple-800"
-                          : "bg-gradient-to-br from-electric-blue to-electric-blue-200"
-                      }`}>
-                        <span className="text-white font-bold text-xs sm:text-sm">
-                          {opportunity.type === "RFP" ? "RFP" : opportunity.team ? "TM" : "SP"}
-                        </span>
-                      </div>
+                      {opportunity.type === "RFP" ? (
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg flex items-center justify-center flex-shrink-0 bg-gradient-to-br from-orange-600 to-orange-800">
+                          <span className="text-white font-bold text-sm sm:text-base">RFP</span>
+                        </div>
+                      ) : (
+                        (() => {
+                          const teamLogo = getTeamLogo(opportunity.team, opportunity.issuedBy);
+                          return teamLogo ? (
+                            <Avatar className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg flex-shrink-0 border border-border">
+                              <AvatarImage src={teamLogo} alt={opportunity.team || opportunity.issuedBy || "Team"} />
+                              <AvatarFallback className="bg-gradient-to-br from-electric-blue to-electric-blue-200 text-white text-sm sm:text-base font-bold">
+                                {opportunity.type === "Grant" ? "TM" : "SP"}
+                              </AvatarFallback>
+                            </Avatar>
+                          ) : (
+                            <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-lg flex items-center justify-center flex-shrink-0 ${
+                              opportunity.type === "Grant"
+                                ? "bg-gradient-to-br from-purple-600 to-purple-800"
+                                : "bg-gradient-to-br from-electric-blue to-electric-blue-200"
+                            }`}>
+                              <span className="text-white font-bold text-sm sm:text-base">
+                                {opportunity.type === "Grant" ? "TM" : "SP"}
+                              </span>
+                            </div>
+                          );
+                        })()
+                      )}
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1">
                           <h3 className="font-semibold text-foreground text-sm sm:text-base truncate">{opportunity.title}</h3>
@@ -447,9 +669,114 @@ const OpportuniesPage = () => {
                   </div>
                 </Card>
                 </Link>
-                  ));
+                      ))}
+                      {/* Pagination Controls - For all tabs and categories */}
+                      {totalPages > 1 && (
+                        <div className="flex items-center justify-center gap-2 mt-6">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => setBountyPage(prev => Math.max(1, prev - 1))}
+                            disabled={bountyPage === 1}
+                            className="flex items-center gap-1"
+                          >
+                            <ChevronLeft className="w-4 h-4" />
+                            Previous
+                          </Button>
+                          <div className="flex items-center gap-1">
+                            <span className="text-sm text-muted-foreground">
+                              Page {bountyPage} of {totalPages}
+                            </span>
+                          </div>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => setBountyPage(prev => Math.min(totalPages, prev + 1))}
+                            disabled={bountyPage === totalPages}
+                            className="flex items-center gap-1"
+                          >
+                            Next
+                            <ChevronRight className="w-4 h-4" />
+                          </Button>
+                        </div>
+                      )}
+                    </>
+                  );
                 })()
               )}
+            </div>
+
+            {/* Grants Section - Separate below the filter listing */}
+            <div className="mt-8">
+              <h2 className="text-xl sm:text-2xl font-bold mb-6">Grants</h2>
+              <div className="space-y-4 flex flex-col">
+                {loading ? (
+                  Array.from({ length: 3 }).map((_, i) => (
+                    <Card key={`grant-skel-${i}`} className="bg-card border border-border p-4 sm:p-6">
+                      <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                        <div className="flex items-start gap-4 flex-1">
+                          <Skeleton className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg" />
+                          <div className="flex-1 min-w-0 space-y-2">
+                            <Skeleton className="h-4 w-3/4" />
+                            <Skeleton className="h-3 w-1/3" />
+                          </div>
+                        </div>
+                        <Skeleton className="h-5 w-20" />
+                      </div>
+                    </Card>
+                  ))
+                ) : (
+                  (dynGrants.length ? dynGrants : mockGrants)
+                    .slice(0, 3)
+                    .map((grant: any) => (
+                      <Link key={grant.id} to={`/opportunity/${grant.id}`} state={{ opportunity: { ...grant, type: grant.type || "Grant", status: grant.status || "Active" } }}>
+                        <Card className="bg-card border border-border p-4 sm:p-6 hover:border-electric-blue/50 transition-colors hover:glow-electric">
+                          <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                            <div className="flex items-start gap-4 flex-1">
+                              {(() => {
+                                const teamLogo = getTeamLogo(grant.team, grant.issuedBy);
+                                return teamLogo ? (
+                                  <Avatar className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg flex-shrink-0 border border-border">
+                                    <AvatarImage src={teamLogo} alt={grant.team || grant.issuedBy || "Team"} />
+                                    <AvatarFallback className="bg-gradient-to-br from-purple-600 to-purple-800 text-white text-sm sm:text-base font-bold">
+                                      TM
+                                    </AvatarFallback>
+                                  </Avatar>
+                                ) : (
+                                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg flex items-center justify-center flex-shrink-0 bg-gradient-to-br from-purple-600 to-purple-800">
+                                    <span className="text-white font-bold text-sm sm:text-base">TM</span>
+                                  </div>
+                                );
+                              })()}
+                              <div className="flex-1 min-w-0">
+                                <div className="flex items-center gap-2 mb-1">
+                                  <h3 className="font-semibold text-foreground text-sm sm:text-base truncate">{grant.title}</h3>
+                                  {grant.verified && <CheckCircle className="w-4 h-4 text-electric-blue flex-shrink-0" />}
+                                </div>
+                                <p className="text-muted-foreground text-xs sm:text-sm mb-2">{grant.team || grant.issuedBy || "Community Sponsor"}</p>
+                                
+                                <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm">
+                                  <span className="flex items-center gap-1 text-muted-foreground">
+                                    <Zap className="w-3 h-3 sm:w-4 sm:h-4" />
+                                    {grant.type}
+                                  </span>
+                                  {grant.category && (
+                                    <span className="text-muted-foreground">{grant.category}</span>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
+                            <div className="text-right sm:text-left">
+                              <div className="text-base sm:text-lg font-bold text-electric-blue">
+                                {grant.maxAmount || grant.avgAmount || ""}
+                              </div>
+                            </div>
+                          </div>
+                        </Card>
+                      </Link>
+                    ))
+                )}
+              </div>
             </div>
 
           </div>
@@ -533,7 +860,7 @@ const OpportuniesPage = () => {
                       </div>
                       <div>
                         <div className="text-xs sm:text-sm text-muted-foreground">Total Value Earned</div>
-                        <div className="font-bold text-foreground text-sm sm:text-base">$7,654,510 USD</div>
+                        <div className="font-bold text-foreground text-sm sm:text-base">$ USD</div>
                       </div>
                     </div>
                   </div>
@@ -594,10 +921,10 @@ const OpportuniesPage = () => {
               )}
             </div>
 
-            {/* Recent Earners */}
+            {/* Recent Submissions */}
             <div>
               <div className="flex items-center justify-between mb-4">
-                <h3 className="font-semibold text-foreground text-sm sm:text-base">RECENT EARNERS</h3>
+                <h3 className="font-semibold text-foreground text-sm sm:text-base">RECENT SUBMISSIONS</h3>
               </div>
               {loading ? (
                 <div className="space-y-3">
@@ -626,7 +953,6 @@ const OpportuniesPage = () => {
                         <div className="font-medium text-foreground text-xs sm:text-sm truncate">{earner.name}</div>
                         <div className="text-muted-foreground text-xs truncate">{earner.description}</div>
                       </div>
-                      <div className="text-electric-blue text-xs sm:text-sm font-medium">{earner.earned}</div>
                     </div>
                   ))}
                 </div>

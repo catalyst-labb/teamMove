@@ -244,31 +244,7 @@ const TalentPage = () => {
         {/* Main Content */}
         <div className="flex-1 p-4 sm:p-6">
           {/* Hero Section */}
-          <div className="relative overflow-hidden bg-gradient-to-r from-electric-blue to-electric-blue-200 rounded-sm p-6 sm:p-8 mb-6 sm:mb-8">
-            <div className="absolute -top-8 -right-8 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-float" />
-            <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-foreground/5 rounded-full blur-2xl animate-float" />
-            <div className="relative flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 transition-all duration-700 ease-out">
-              <div className="flex-1">
-                <div className="flex items-center gap-3 mb-4">
-                  <Trophy className="w-6 h-6 sm:w-8 sm:h-8 text-white " />
-                  <h2 className="text-xl sm:text-2xl font-bold text-white">Talent Hub</h2>
-                </div>
-                <p className="text-white/90 mb-6 max-w-2xl text-sm sm:text-base">
-                  Discover top talent, track seasonal leaderboards, and celebrate the builders driving the Cedra ecosystem forward.
-                </p>
-                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                  <Button 
-                    onClick={() => navigate("/opportunities")}
-                    className="bg-white text-electric-blue hover:bg-electric-blue/10 px-6 py-3 rounded-sm w-full sm:w-auto glow-electric hover:glow-electric-strong"
-                  >
-                    Join the Competition
-                  </Button>
-                  <span className="text-white/80 text-sm">1,247 active contributors</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
+          
           {/* Season Info Card */}
           <Card className="bg-card border border-border p-4 sm:p-6 mb-6 animate-slide-in-up">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
